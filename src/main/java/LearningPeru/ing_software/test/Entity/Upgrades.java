@@ -1,0 +1,87 @@
+package LearningPeru.ing_software.test.Entity;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+@Entity(name="Upgrades")
+@Table(name="upgrades")
+public class Upgrades {
+    @Id
+    private Long Id;
+
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private User user;
+
+    @Column
+    private Type_of_user upgraded_to;
+
+    @OneToMany(
+            mappedBy = "upgrade",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Upgrade_files> files_sent;
+
+    @Column
+    private Date date;
+
+    @Column
+    private Boolean aproved;
+
+
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private User who_aproved;
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Type_of_user getUpgraded_to() {
+        return upgraded_to;
+    }
+
+    public void setUpgraded_to(Type_of_user upgraded_to) {
+        this.upgraded_to = upgraded_to;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Boolean getAproved() {
+        return aproved;
+    }
+
+    public void setAproved(Boolean aproved) {
+        this.aproved = aproved;
+    }
+
+    public User getWho_aproved() {
+        return who_aproved;
+    }
+
+    public void setWho_aproved(User who_aproved) {
+        this.who_aproved = who_aproved;
+    }
+}
