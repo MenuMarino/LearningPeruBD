@@ -1,6 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -8,21 +9,31 @@ import java.util.List;
 @Table(name="users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @Column
-    private String name;
+    private String name;    //
     @Column
-    private String lastname;
+    private String lastname;    //
 
     @Column
-    private String email;
+    private String email;       //
 
     @Column
-    private String password;
+    private String key_public;
 
     @Column
-    private Integer age;
+    private String key_private;
+
+    @Column
+    private String username;      //
+
+    @Column
+    private String password;        //
+
+    @Column
+    private Integer age;            //
 
     @Column
     private boolean sex;
@@ -34,13 +45,10 @@ public class User {
     private Type_of_user type;
 
     @Column
-    private String country;
+    private String country;         //
 
     @Column
     private Date created;
-
-    @Column
-    private String loginName;
 
     @OneToMany(mappedBy = "who_posted")
     private List<Material> myMaterials;
@@ -55,6 +63,40 @@ public class User {
             orphanRemoval = true
     )
     private List<Rating> ratings;
+
+    public String getKey_public() {
+        return key_public;
+    }
+
+    public void setKey_public(String key_public) {
+        this.key_public = key_public;
+    }
+
+    public String getKey_private() {
+        return key_private;
+    }
+
+    public void setKey_private(String key_private) {
+        this.key_private = key_private;
+    }
+
+    public Type_of_user getType() {
+        return type;
+    }
+
+    public void setType(Type_of_user type) {
+        this.type = type;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+
 
     public List<Material> getMyMaterials() {
         return myMaterials;
@@ -153,11 +195,11 @@ public class User {
         this.created = created;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
