@@ -26,29 +26,34 @@ public class User {
     @Column
     private String key_private;
 
-    @Column
+    @Column(unique = true)
     private String username;      //
 
     @Column
     private String password;        //
 
     @Column
-    private Integer age;            //
+    private Date birth;            //
 
     @Column
-    private boolean sex;
+    private Boolean sex;
 
     @Column
     private Integer grade;
 
     @Column
-    private Type_of_user type;
-
-    @Column
-    private String country;         //
+    private String type; //     STUDENT, TWAITING, TEACHER, CWAITING, CURATOR, ADMIN;
 
     @Column
     private Date created;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @OneToMany(mappedBy = "who_posted")
     private List<Material> myMaterials;
@@ -80,14 +85,6 @@ public class User {
         this.key_private = key_private;
     }
 
-    public Type_of_user getType() {
-        return type;
-    }
-
-    public void setType(Type_of_user type) {
-        this.type = type;
-    }
-
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -95,7 +92,6 @@ public class User {
     public void setRatings(List<Rating> ratings) {
         this.ratings = ratings;
     }
-
 
 
     public List<Material> getMyMaterials() {
@@ -154,13 +150,6 @@ public class User {
         this.password = password;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public boolean isSex() {
         return sex;
@@ -178,13 +167,20 @@ public class User {
         this.grade = grade;
     }
 
-
-    public String getCountry() {
-        return country;
+    public Date getBirth() {
+        return birth;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
     }
 
     public Date getCreated() {

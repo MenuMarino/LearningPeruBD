@@ -11,38 +11,15 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
-@RequestMapping(value = "/Auth")
-public class AuthController {
+@RequestMapping(value = "/login")
+public class Login {
 
     @Autowired
     UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    User register(@RequestBody User user){
-
-        User tmp = userService.findbyusername(user);
-        if (tmp == null)
-            return userService.create(user);
-        else {
-            //TODO: Retornar algo que diga que ya existe un usuario
-            return null;
-        }
-    }
-
-    /*
-    @GetMapping(value = "/login")
-    @ResponseBody
     User login(@RequestBody User user) {
         return userService.findbyCredentials(user);
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    User FindAllByUsername(@RequestBody User user){
-        return userService.findbyusername(user);
-    }*/
-
-
-
 }

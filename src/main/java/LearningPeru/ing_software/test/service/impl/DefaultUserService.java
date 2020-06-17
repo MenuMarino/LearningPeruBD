@@ -21,8 +21,8 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public List<User> getbyusername(User user) {
-        return userRepository.getByUsername(user.getUsername());
+    public User findbyusername(User user) {
+        return userRepository.findByUsername(user.getUsername());
     }
 
     @Override
@@ -30,5 +30,16 @@ public class DefaultUserService implements UserService {
         List<User> temp=new ArrayList<>();
         userRepository.findAll().forEach(temp::add);
         return temp;
+    }
+
+    @Override
+    public User findbyCredentials(User user) {
+        User tmp = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (tmp == null){
+            User vacio = new User();
+            return vacio;
+        } else {
+            return tmp;
+        }
     }
 }

@@ -11,8 +11,10 @@ public interface UserService {
 
     User create(User user);
 
-    List<User> getbyusername(User user);
+    User findbyusername(User user);
 
     List<User> getAll();
+
+    User findbyCredentials(User user);
 
 }
