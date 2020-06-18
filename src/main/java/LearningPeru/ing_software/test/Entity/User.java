@@ -2,6 +2,8 @@ package LearningPeru.ing_software.test.Entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.Date;
 import java.util.List;
 
@@ -21,10 +23,10 @@ public class User {
     private String email;       //
 
     @Column
-    private String key_public;
+    private PublicKey key_public;
 
     @Column
-    private String key_private;
+    private PrivateKey key_private;
 
     @Column(unique = true)
     private String username;      //
@@ -69,47 +71,6 @@ public class User {
     )
     private List<Rating> ratings;
 
-    public String getKey_public() {
-        return key_public;
-    }
-
-    public void setKey_public(String key_public) {
-        this.key_public = key_public;
-    }
-
-    public String getKey_private() {
-        return key_private;
-    }
-
-    public void setKey_private(String key_private) {
-        this.key_private = key_private;
-    }
-
-    public List<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
-    }
-
-
-    public List<Material> getMyMaterials() {
-        return myMaterials;
-    }
-
-    public void setMyMaterials(List<Material> myMaterials) {
-        this.myMaterials = myMaterials;
-    }
-
-    public List<Material> getFavouriteMaterials() {
-        return favouriteMaterials;
-    }
-
-    public void setFavouriteMaterials(List<Material> favouriteMaterials) {
-        this.favouriteMaterials = favouriteMaterials;
-    }
-
     public Long getId() {
         return Id;
     }
@@ -142,29 +103,36 @@ public class User {
         this.email = email;
     }
 
+    public PublicKey getKey_public() {
+        return key_public;
+    }
+
+    public void setKey_public(PublicKey key_public) {
+        this.key_public = key_public;
+    }
+
+    public PrivateKey getKey_private() {
+        return key_private;
+    }
+
+    public void setKey_private(PrivateKey key_private) {
+        this.key_private = key_private;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-
-    public boolean isSex() {
-        return sex;
-    }
-
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
-
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Integer grade) {
-        this.grade = grade;
     }
 
     public Date getBirth() {
@@ -183,6 +151,14 @@ public class User {
         this.sex = sex;
     }
 
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
     public Date getCreated() {
         return created;
     }
@@ -191,11 +167,27 @@ public class User {
         this.created = created;
     }
 
-    public String getUsername() {
-        return username;
+    public List<Material> getMyMaterials() {
+        return myMaterials;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setMyMaterials(List<Material> myMaterials) {
+        this.myMaterials = myMaterials;
+    }
+
+    public List<Material> getFavouriteMaterials() {
+        return favouriteMaterials;
+    }
+
+    public void setFavouriteMaterials(List<Material> favouriteMaterials) {
+        this.favouriteMaterials = favouriteMaterials;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 }
