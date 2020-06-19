@@ -14,6 +14,9 @@ public class Material {
     private Integer visits;
 
     @Column
+    private String name;
+
+    @Column
     private Integer downloads;
 
     @Column
@@ -48,6 +51,46 @@ public class Material {
             orphanRemoval = true
     )
     private List<Rating> ratings;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public User getWho_aproved() {
+        return who_aproved;
+    }
+
+    public void setWho_aproved(User who_aproved) {
+        this.who_aproved = who_aproved;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
 
     public Long getId() {
         return Id;
