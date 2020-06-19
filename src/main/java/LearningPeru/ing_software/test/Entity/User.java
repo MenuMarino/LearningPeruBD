@@ -44,18 +44,11 @@ public class User {
     private Integer grade;
 
     @Column
-    private String type; //     STUDENT, TWAITING, TEACHER, CWAITING, CURATOR, ADMIN;
+    private Type_of_user type; //     STUDENT, TWAITING, TEACHER, CWAITING, CURATOR, ADMIN;
 
     @Column
     private Date created;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     @OneToMany(mappedBy = "who_posted")
     private List<Material> myMaterials;
@@ -70,6 +63,64 @@ public class User {
             orphanRemoval = true
     )
     private List<Rating> ratings;
+
+
+    /*public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }*/
+
+    public Type_of_user getType() {
+        return type;
+    }
+
+    public void setType(Type_of_user type) {
+        this.type = type;
+    }
+
+    public PublicKey getKey_public() {
+        return key_public;
+    }
+
+    public void setKey_public(PublicKey key_public) {
+        this.key_public = key_public;
+    }
+
+    public PrivateKey getKey_private() {
+        return key_private;
+    }
+
+    public void setKey_private(PrivateKey key_private) {
+        this.key_private = key_private;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+
+    public List<Material> getMyMaterials() {
+        return myMaterials;
+    }
+
+    public void setMyMaterials(List<Material> myMaterials) {
+        this.myMaterials = myMaterials;
+    }
+
+    public List<Material> getFavouriteMaterials() {
+        return favouriteMaterials;
+    }
+
+    public void setFavouriteMaterials(List<Material> favouriteMaterials) {
+        this.favouriteMaterials = favouriteMaterials;
+    }
 
     public Long getId() {
         return Id;
@@ -103,36 +154,29 @@ public class User {
         this.email = email;
     }
 
-    public PublicKey getKey_public() {
-        return key_public;
-    }
-
-    public void setKey_public(PublicKey key_public) {
-        this.key_public = key_public;
-    }
-
-    public PrivateKey getKey_private() {
-        return key_private;
-    }
-
-    public void setKey_private(PrivateKey key_private) {
-        this.key_private = key_private;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public boolean isSex() {
+        return sex;
+    }
+
+    public void setSex(boolean sex) {
+        this.sex = sex;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
     }
 
     public Date getBirth() {
@@ -151,14 +195,6 @@ public class User {
         this.sex = sex;
     }
 
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Integer grade) {
-        this.grade = grade;
-    }
-
     public Date getCreated() {
         return created;
     }
@@ -167,27 +203,11 @@ public class User {
         this.created = created;
     }
 
-    public List<Material> getMyMaterials() {
-        return myMaterials;
+    public String getUsername() {
+        return username;
     }
 
-    public void setMyMaterials(List<Material> myMaterials) {
-        this.myMaterials = myMaterials;
-    }
-
-    public List<Material> getFavouriteMaterials() {
-        return favouriteMaterials;
-    }
-
-    public void setFavouriteMaterials(List<Material> favouriteMaterials) {
-        this.favouriteMaterials = favouriteMaterials;
-    }
-
-    public List<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

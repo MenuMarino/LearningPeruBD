@@ -43,7 +43,7 @@ public class AuthController {
         return userService.findbyusername(user);
     }*/
 
-    @GetMapping(value="/Auth/all")
+    @GetMapping(value="/all")
     @ResponseBody
     List<User> getall(){
         return userService.getAll();
