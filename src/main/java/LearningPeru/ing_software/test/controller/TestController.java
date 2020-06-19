@@ -25,7 +25,7 @@ public class TestController {
         user.setName("Jesus");
         user.setLastname("Bellido");
         //user.setType("STUDENT");
-        user.setType(Type_of_user.STUDENT);
+        user.setType(Type_of_user.ADMIN);
         System.out.println(user.getUsername());
         userService.create(user);
 
@@ -34,6 +34,7 @@ public class TestController {
         user2.setPassword(DigestUtils.sha256Hex("yserrano"));
         user2.setName("Yamilet");
         user2.setLastname("Serrano");
+        user.setType(Type_of_user.CURATOR);
         userService.create(user2);
 
         User user3=new User();
@@ -41,6 +42,7 @@ public class TestController {
         user3.setPassword(DigestUtils.sha256Hex("josemaria"));
         user3.setName("jose");
         user3.setLastname("maria");
+        user.setType(Type_of_user.TEACHER);
         userService.create(user3);
 
         User user4=new User();
@@ -48,6 +50,7 @@ public class TestController {
         user4.setPassword(DigestUtils.sha256Hex("silvialabandera"));
         user4.setName("maria");
         user4.setLastname("La bandera");
+        user.setType(Type_of_user.STUDENT);
         userService.create(user4);
 
 
