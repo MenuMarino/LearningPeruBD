@@ -17,6 +17,9 @@ public class Material {
     private String name;
 
     @Column
+    private String description;
+
+    @Column
     private Integer downloads;
 
     @Column

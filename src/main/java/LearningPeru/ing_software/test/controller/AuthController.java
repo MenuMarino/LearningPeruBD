@@ -49,5 +49,10 @@ public class AuthController {
         return userService.getAll();
     }
 
+    @RequestMapping(method = RequestMethod.POST, value="/Auth/login")
+    @ResponseBody
+    User login(@RequestBody User user) {
+        return userService.findbyCredentials(user);
+    }
 
 }

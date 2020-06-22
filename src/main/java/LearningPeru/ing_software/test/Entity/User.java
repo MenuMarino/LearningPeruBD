@@ -15,7 +15,7 @@ public class User {
     private Long Id;
 
     @Column
-    private String name;    //
+        private String name;    //
     @Column
     private String lastname;    //
 
@@ -28,7 +28,7 @@ public class User {
     @Column
     private PrivateKey key_private;
 
-    @Column(unique = true)
+        @Column(unique = true)
     private String username;      //
 
     @Column

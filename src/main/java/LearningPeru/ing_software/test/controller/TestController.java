@@ -2,19 +2,37 @@ package LearningPeru.ing_software.test.controller;
 
 import LearningPeru.ing_software.test.Entity.Type_of_user;
 import LearningPeru.ing_software.test.Entity.User;
+import LearningPeru.ing_software.test.service.UploadsService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/test")
 public class TestController {
+    private String path="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+
     @Autowired
     UserService userService;
+
+    @Autowired
+    UploadsService uploadsService;
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
@@ -66,4 +84,16 @@ public class TestController {
         return userService.getAll();
 
     }
+
+    @PostMapping(value="/test/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseBody
+    String upload(@RequestParam("file") MultipartFile file) throws IOException {
+        uploadsService.save(path,file);
+
+
+        return "hola";
+
+
+    }
+
 }
