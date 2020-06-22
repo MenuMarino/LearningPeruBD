@@ -7,6 +7,7 @@ import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -87,11 +88,10 @@ public class TestController {
 
     @PostMapping(value="/test/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-    String upload(@RequestParam("file") MultipartFile file) throws IOException {
+    HttpEntity<Object> upload(@RequestParam("file") MultipartFile file) throws IOException {
         uploadsService.save(path,file);
+        return uploadsService.download("application/png",path+file.getOriginalFilename());
 
-
-        return "hola";
 
 
     }
