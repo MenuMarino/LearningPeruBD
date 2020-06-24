@@ -42,7 +42,7 @@ public class Material {
     private User who_posted;
 
     @Column
-    private Boolean enabled;
+    private Boolean deleted;
 
     @OneToOne
     @PrimaryKeyJoinColumn
@@ -71,12 +71,20 @@ public class Material {
         this.date = date;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 
     public User getWho_aproved() {
