@@ -22,11 +22,7 @@ public class User {
     @Column
     private String email;       //
 
-    @Column
-    private PublicKey key_public;
 
-    @Column
-    private PrivateKey key_private;
 
         @Column(unique = true)
     private String username;      //
@@ -79,22 +75,6 @@ public class User {
 
     public void setType(Type_of_user type) {
         this.type = type;
-    }
-
-    public PublicKey getKey_public() {
-        return key_public;
-    }
-
-    public void setKey_public(PublicKey key_public) {
-        this.key_public = key_public;
-    }
-
-    public PrivateKey getKey_private() {
-        return key_private;
-    }
-
-    public void setKey_private(PrivateKey key_private) {
-        this.key_private = key_private;
     }
 
     public List<Rating> getRatings() {
