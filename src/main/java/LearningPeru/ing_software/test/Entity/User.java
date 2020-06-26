@@ -15,16 +15,14 @@ public class User {
     private Long Id;
 
     @Column
-        private String name;    //
+    private String name;    //
     @Column
     private String lastname;    //
 
     @Column
     private String email;       //
 
-
-
-        @Column(unique = true)
+    @Column(unique = true)
     private String username;      //
 
     @Column
