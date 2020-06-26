@@ -16,7 +16,16 @@ public class UserController {
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody
     User update_user(@RequestBody User user){
-
+        User temp = UserService.findbyId(user.getId());
+        if( user.getUsername()!=null ){
+            temp.setUsername(user.getUsername());
+        }
+        if (user.getEmail()!=null ){
+            temp.setEmail(user.getEmail());
+        }
+        if (user.getPassword()!= null){
+            user.setEmail(user.getPassword());
+        }
         return UserService.save(user);
     }
 

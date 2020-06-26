@@ -42,4 +42,9 @@ public class DefaultUserService implements UserService {
             return tmp;
         }
     }
+
+    @Override
+    public User findbyId(Long id) {
+        return userRepository.findById(id).get();
+    }
 }

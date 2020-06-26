@@ -16,4 +16,6 @@ public interface UserService {
     List<User> getAll();
 
     User findbyCredentials(User user);
+
+    User findbyId(Long id);
 }
