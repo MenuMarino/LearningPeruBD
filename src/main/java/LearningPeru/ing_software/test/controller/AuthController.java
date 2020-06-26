@@ -1,6 +1,5 @@
 package LearningPeru.ing_software.test.controller;
 
-import LearningPeru.ing_software.test.Entity.Type_of_user;
 import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class AuthController {
 
         User tmp = userService.findbyusername(user);
         if (tmp == null)
-            return userService.create(user);
+            return userService.save(user);
         else {
             //TODO: Retornar algo que diga que ya existe un usuario
             return null;

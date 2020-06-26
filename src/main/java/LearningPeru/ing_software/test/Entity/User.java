@@ -22,6 +22,12 @@ public class User {
     @Column
     private String email;       //
 
+    @Column
+    private String Institucion;
+
+    @Column
+    private String Especialidad;
+
     @Column(unique = true)
     private String username;      //
 
@@ -66,6 +72,18 @@ public class User {
     public void setType(String type) {
         this.type = type;
     }*/
+
+    public String getInstitucion() { return Institucion;  }
+
+    public void setInstitucion(String institucion) {  Institucion = institucion;  }
+
+    public String getEspecialidad() {
+        return Especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        Especialidad = especialidad;
+    }
 
     public Type_of_user getType() {
         return type;

@@ -9,12 +9,11 @@ import java.util.List;
 
 public interface UserService {
 
-    User create(User user);
+    User save(User user);
 
     User findbyusername(User user);
 
     List<User> getAll();
 
     User findbyCredentials(User user);
-
 }
