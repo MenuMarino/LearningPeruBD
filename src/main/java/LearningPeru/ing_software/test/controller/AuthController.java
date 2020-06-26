@@ -51,7 +51,14 @@ public class AuthController {
     @RequestMapping(method = RequestMethod.POST, value="/login")
     @ResponseBody
     User login(@RequestBody User user) {
-        return userService.findbyCredentials(user);
+        User temp= userService.findbyCredentials(user);
+        if (temp!=null) {
+            temp.setPassword(null);
+            return temp;
+        }else{
+            return new User();
+        }
+
     }
 
 }

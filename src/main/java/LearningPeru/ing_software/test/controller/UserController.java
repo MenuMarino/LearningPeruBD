@@ -16,7 +16,11 @@ public class UserController {
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody
     User update_user(@RequestBody User user){
+
         return UserService.save(user);
     }
+
+
+
 
 }
