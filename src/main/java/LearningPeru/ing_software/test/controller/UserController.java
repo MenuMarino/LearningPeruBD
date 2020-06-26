@@ -26,7 +26,7 @@ public class UserController {
         if (user.getPassword()!= null){
             user.setEmail(user.getPassword());
         }
-        return UserService.save(user);
+        return UserService.save(temp);
     }
 
 
