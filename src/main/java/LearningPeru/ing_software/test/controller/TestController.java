@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -30,13 +33,15 @@ public class TestController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     List<User> tester(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         User user= new User();
         user.setUsername("jbellido");
         user.setPassword(DigestUtils.sha256Hex("jbellido"));
         user.setName("Jesus");
         user.setLastname("Bellido");
-        //user.setType("STUDENT");
         user.setType(Type_of_user.ADMIN);
+        user.setSex(true);
+        user.setCreated(new Date());
         System.out.println(user.getUsername());
         userService.save(user);
 
@@ -46,6 +51,8 @@ public class TestController {
         user2.setName("Yamilet");
         user2.setLastname("Serrano");
         user2.setType(Type_of_user.CURATOR);
+        user2.setSex(false);
+        user2.setCreated(new Date());
         userService.save(user2);
 
         User user3=new User();
@@ -54,6 +61,8 @@ public class TestController {
         user3.setName("Jose");
         user3.setLastname("Maria");
         user3.setType(Type_of_user.TEACHER);
+        user3.setSex(true);
+        user3.setCreated(new Date());
         userService.save(user3);
 
         User user4=new User();
@@ -62,6 +71,8 @@ public class TestController {
         user4.setName("Silvia");
         user4.setLastname("La bandera");
         user4.setType(Type_of_user.STUDENT);
+        user4.setSex(false);
+        user4.setCreated(new Date());
         userService.save(user4);
 
         User user5=new User();
@@ -70,6 +81,8 @@ public class TestController {
         user5.setName("Enrique");
         user5.setLastname("Sobrados");
         user5.setType(Type_of_user.TWAITING);
+        user5.setSex(true);
+        user5.setCreated(new Date());
         userService.save(user5);
 
 
