@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -102,12 +103,16 @@ public class TestController {
         file.setId((long) 1);
         file.setDate(date);
         file.setLink("facebook.com");
-        List<File> l = null;
+        List<File> l = new ArrayList<>();
         l.add(file);
         material.setFiles(l);
         //josemaria
         material.setWho_posted(user3);
 
+        List<Material> nuevoMaterial= new ArrayList<>();
+        nuevoMaterial.add(material);
+        user3.setMyMaterials(nuevoMaterial);
+        userService.save(user3);
 
         return userService.getAll();
         //Crear un material
