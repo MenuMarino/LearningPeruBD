@@ -1,7 +1,6 @@
 package LearningPeru.ing_software.test.controller;
 
-import LearningPeru.ing_software.test.Entity.Type_of_user;
-import LearningPeru.ing_software.test.Entity.User;
+import LearningPeru.ing_software.test.Entity.*;
 import LearningPeru.ing_software.test.service.UploadsService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -85,10 +84,33 @@ public class TestController {
         user5.setCreated(new Date());
         userService.save(user5);
 
+        Material material = new Material();
+        Course course = new Course();
+        course.setId((long) 1);
+        course.setName("Matematica");
+        course.setTheme("Vectores");
+        material.setId((long) 1);
+        material.setCourse(course);
+        material.setName("Test material");
+        material.setDescription("Marcusss");
+        material.setVisits(20);
+        material.setDownloads(15);
+        material.setRatingPeople(69);
+        Date date = new Date();
+        material.setDate(date);
+        File file = new File();
+        file.setId((long) 1);
+        file.setDate(date);
+        file.setLink("facebook.com");
+        List<File> l = null;
+        l.add(file);
+        material.setFiles(l);
+        //josemaria
+        material.setWho_posted(user3);
 
 
         return userService.getAll();
-
+        //Crear un material
     }
 
     @PostMapping(value="/test/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
