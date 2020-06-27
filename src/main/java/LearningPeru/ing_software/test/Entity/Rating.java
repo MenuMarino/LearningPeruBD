@@ -1,5 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,6 +20,7 @@ public class Rating {
     @ManyToOne
     private Material material;
 
+    @JsonBackReference
     @ManyToOne
     private User user;
 

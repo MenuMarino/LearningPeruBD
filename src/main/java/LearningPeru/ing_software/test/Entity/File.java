@@ -1,5 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,6 +22,7 @@ public class File {
     @Column
     private String link;
 
+    @JsonBackReference
     @ManyToOne
     private Material material_from;
 

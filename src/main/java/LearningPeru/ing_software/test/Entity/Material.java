@@ -1,5 +1,8 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -31,18 +34,21 @@ public class Material {
     @Column
     private Integer Learning_Points;
 
+    @JsonBackReference
     @ManyToOne
     private Course course;
 
-
-    @OneToMany(mappedBy = "material_from")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "material_from",cascade= CascadeType.ALL)
     private List<File> files;
 
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private User who_posted;
 
     @Column
     private Boolean deleted;
+
 
     @OneToOne
     @PrimaryKeyJoinColumn

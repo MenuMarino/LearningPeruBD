@@ -1,6 +1,9 @@
 package LearningPeru.ing_software.test.controller;
 
 import LearningPeru.ing_software.test.Entity.*;
+import LearningPeru.ing_software.test.repositories.MaterialRepository;
+import LearningPeru.ing_software.test.service.CourseService;
+import LearningPeru.ing_software.test.service.MaterialService;
 import LearningPeru.ing_software.test.service.UploadsService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -29,6 +32,12 @@ public class TestController {
 
     @Autowired
     UploadsService uploadsService;
+
+    @Autowired
+    CourseService courseService;
+
+    @Autowired
+    MaterialService materialService;
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
@@ -90,6 +99,7 @@ public class TestController {
         course.setId((long) 1);
         course.setName("Matematica");
         course.setTheme("Vectores");
+        courseService.save(course);
         material.setId((long) 1);
         material.setCourse(course);
         material.setName("Test material");
@@ -106,12 +116,14 @@ public class TestController {
         List<File> l = new ArrayList<>();
         l.add(file);
         material.setFiles(l);
+
         //josemaria
         material.setWho_posted(user3);
 
         List<Material> nuevoMaterial= new ArrayList<>();
         nuevoMaterial.add(material);
         user3.setMyMaterials(nuevoMaterial);
+
         userService.save(user3);
 
         return userService.getAll();
@@ -126,6 +138,12 @@ public class TestController {
 
 
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    List<Material> getmateriales(){
+        return materialService.getALL();
     }
 
 }

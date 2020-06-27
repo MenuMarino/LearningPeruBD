@@ -1,11 +1,14 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Date;
 import java.util.List;
+
 
 @Entity(name="Users")
 @Table(name="users")
@@ -49,14 +52,15 @@ public class User {
     @Column
     private Date created;
 
-
-    @OneToMany(mappedBy = "who_posted")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "who_posted",cascade= CascadeType.ALL)
     private List<Material> myMaterials;
 
     @OneToMany
     @PrimaryKeyJoinColumn
     private List<Material> favouriteMaterials;
 
+    @JsonManagedReference
     @OneToMany(
             mappedBy = "user",
             cascade = CascadeType.ALL,

@@ -1,5 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -19,12 +21,21 @@ public class Course {
     @Column
     private String theme;
 
+    @JsonManagedReference
     @OneToMany(
             mappedBy = "course",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Material> materiales;
+
+    public List<Material> getMateriales() {
+        return materiales;
+    }
+
+    public void setMateriales(List<Material> materiales) {
+        this.materiales = materiales;
+    }
 
     public Long getId() {
         return Id;
