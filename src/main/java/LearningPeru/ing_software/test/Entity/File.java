@@ -1,6 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,8 +23,9 @@ public class File {
     @Column
     private String link;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne
+    @JsonIgnoreProperties("files")
     private Material material_from;
 
     public Long getId() {

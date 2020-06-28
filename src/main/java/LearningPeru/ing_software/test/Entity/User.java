@@ -1,5 +1,6 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -52,7 +53,8 @@ public class User {
     @Column
     private Date created;
 
-    @JsonManagedReference
+    //@JsonManagedReference
+    @JsonIgnoreProperties("who_posted")
     @OneToMany(mappedBy = "who_posted",cascade= CascadeType.ALL)
     private List<Material> myMaterials;
 
@@ -60,7 +62,7 @@ public class User {
     @PrimaryKeyJoinColumn
     private List<Material> favouriteMaterials;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @OneToMany(
             mappedBy = "user",
             cascade = CascadeType.ALL,

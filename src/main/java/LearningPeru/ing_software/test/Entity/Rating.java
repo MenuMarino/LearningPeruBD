@@ -1,6 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,10 +18,13 @@ public class Rating {
     @Column
     private Date created;
 
+    //@JsonBackReference
+    @JsonIgnoreProperties("ratings")
     @ManyToOne
     private Material material;
 
-    @JsonBackReference
+    //@JsonBackReference
+    @JsonIgnoreProperties("ratings")
     @ManyToOne
     private User user;
 

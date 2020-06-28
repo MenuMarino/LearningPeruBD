@@ -30,11 +30,11 @@ public class AuthController {
     }
 
     /*
-    @GetMapping(value = "/login")
-    @ResponseBody
-    User login(@RequestBody User user) {
-        return userService.findbyCredentials(user);
-    }
+        @GetMapping(value = "/login")
+        @ResponseBody
+        User login(@RequestBody User user) {
+            return userService.findbyCredentials(user);
+        }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody

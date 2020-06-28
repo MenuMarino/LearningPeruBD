@@ -1,5 +1,9 @@
 package LearningPeru.ing_software.test.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +22,8 @@ public class Upgrades {
     @Column
     private Type_of_user upgraded_to;
 
+    //@JsonManagedReference
+    @JsonIgnoreProperties("upgrade")
     @OneToMany(
             mappedBy = "upgrade",
             cascade = CascadeType.ALL,

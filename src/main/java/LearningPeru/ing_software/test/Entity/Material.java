@@ -1,6 +1,7 @@
 package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -34,15 +35,18 @@ public class Material {
     @Column
     private Integer Learning_Points;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne
+    @JsonIgnoreProperties("materiales")
     private Course course;
 
-    @JsonManagedReference
+    //@JsonManagedReference
+    @JsonIgnoreProperties("material_from")
     @OneToMany(mappedBy = "material_from",cascade= CascadeType.ALL)
     private List<File> files;
 
-    @JsonBackReference
+    //@JsonBackReference
+    @JsonIgnoreProperties("myMaterials")
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private User who_posted;
 
@@ -51,9 +55,12 @@ public class Material {
 
 
     @OneToOne
+    @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
     @PrimaryKeyJoinColumn
     private User who_aproved;
 
+    //@JsonManagedReference
+    @JsonIgnoreProperties("material")
     @OneToMany(
             mappedBy = "material",
             cascade = CascadeType.ALL,
