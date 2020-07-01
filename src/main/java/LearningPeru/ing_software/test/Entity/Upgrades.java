@@ -20,6 +20,9 @@ public class Upgrades {
     private User user;
 
     @Column
+    private String description;
+
+    @Column
     private Type_of_user upgraded_to;
 
     //@JsonManagedReference
@@ -42,6 +45,22 @@ public class Upgrades {
     @OneToOne
     @PrimaryKeyJoinColumn
     private User who_aproved;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Upgrade_files> getFiles_sent() {
+        return files_sent;
+    }
+
+    public void setFiles_sent(List<Upgrade_files> files_sent) {
+        this.files_sent = files_sent;
+    }
 
     public Long getId() {
         return Id;
