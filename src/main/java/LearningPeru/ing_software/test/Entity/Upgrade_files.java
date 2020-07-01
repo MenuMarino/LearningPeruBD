@@ -11,6 +11,7 @@ import java.util.Date;
 @Table(name = "upgrade_files")
 public class Upgrade_files {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @Column

@@ -9,4 +9,6 @@ public interface CourseService {
     Course save(Course course);
 
     List<Course> getAll();
+
+    List<Course> SpecificSearch(Course course);
 }

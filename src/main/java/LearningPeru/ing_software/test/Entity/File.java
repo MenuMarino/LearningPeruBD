@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name="file")
 public class File {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     //sacamos user (revisar)

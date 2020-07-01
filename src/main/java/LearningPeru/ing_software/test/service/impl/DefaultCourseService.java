@@ -5,6 +5,7 @@ import LearningPeru.ing_software.test.repositories.CourseRepository;
 import LearningPeru.ing_software.test.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,11 @@ public class DefaultCourseService implements CourseService {
             temp.add(course);
         }
         return temp;
+    }
+
+    @Override
+    public List<Course> SpecificSearch( Course course) {
+        return courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
     }
 }
 

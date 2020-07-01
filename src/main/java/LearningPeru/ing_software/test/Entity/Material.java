@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name="material")
 public class Material {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @Column

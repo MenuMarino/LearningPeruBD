@@ -10,7 +10,9 @@ import java.util.List;
 @Table(name="course")
 public class Course {
 
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @Column

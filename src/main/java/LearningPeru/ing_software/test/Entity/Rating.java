@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name="rating")
 public class Rating {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @Column
