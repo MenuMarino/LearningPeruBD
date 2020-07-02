@@ -129,13 +129,12 @@ public class TestController {
         //Crear un material
     }
 
-    @PostMapping(value="/test/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value="/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file) throws IOException {
         uploadsService.save(path,file);
         //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
         headers.add("Access-Control-Allow-Credentials", "true");

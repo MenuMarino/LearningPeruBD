@@ -27,7 +27,6 @@ public class AuthController {
 
         User tmp = userService.findbyusername(user);
         HttpHeaders headers= new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
         headers.add("Access-Control-Allow-Credentials", "true");
