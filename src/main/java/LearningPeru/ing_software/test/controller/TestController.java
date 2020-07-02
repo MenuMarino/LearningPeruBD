@@ -24,7 +24,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/test")
 public class TestController {
-    private String path="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+    private String path="/home/lushop/Desktop/software/LearningPBD_CESAR/src/main/java/LearningPeru/ing_software/test/userFiles/";
 
     @Autowired
     UserService userService;
@@ -98,7 +98,7 @@ public class TestController {
         course.setId((long) 1);
         course.setName("Matematica");
         course.setTheme("Vectores");
-        courseService.save(course);
+        course = courseService.save(course);
         material.setId((long) 1);
         material.setCourse(course);
         material.setName("Test material");
@@ -129,9 +129,9 @@ public class TestController {
         //Crear un material
     }
 
-    @PostMapping(value="/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value="/uploads/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file) throws IOException {
+    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file, @PathVariable("id") Integer id) throws IOException {
         uploadsService.save(path,file);
         //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
