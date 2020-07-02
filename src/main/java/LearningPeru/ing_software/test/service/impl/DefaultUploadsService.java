@@ -30,14 +30,14 @@ public class DefaultUploadsService implements UploadsService {
         File file = new File(MegaPath+"/materiales/"+path);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
-
+        headers.setContentType(MediaType.APPLICATION_PDF);
         headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
         headers.add("Pragma", "no-cache");
 
         ResponseEntity<Object>
                 responseEntity = ResponseEntity.ok().headers(headers).contentLength(
-                file.length()).contentType(MediaType.parseMediaType(type)).body(resource);
+                file.length()).body(resource);
 
         return responseEntity;
     }
