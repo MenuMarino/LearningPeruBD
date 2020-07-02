@@ -17,6 +17,7 @@ public class Upgrades {
 
 
     @OneToOne
+    @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
     @PrimaryKeyJoinColumn
     private User user;
 
