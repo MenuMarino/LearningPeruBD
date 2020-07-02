@@ -6,6 +6,7 @@ import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,20 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User save(User user) {
-        return userRepository.save(user);
+        String path="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+        User temp=userRepository.save(user);
+        try {
+            File file = new File(path + temp.getId());
+            file.mkdir();
+            File file2 = new File(path + temp.getId()+"/"+"materiales");
+            File file3 = new File(path + temp.getId()+"/"+"upgrade_files");
+            file2.mkdir();
+            file3.mkdir();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+
     }
 
     @Override
