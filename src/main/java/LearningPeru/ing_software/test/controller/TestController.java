@@ -132,6 +132,7 @@ public class TestController {
     @PostMapping(value="/uploads/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file, @PathVariable("id") Integer id) throws IOException {
+        path = path + id + "/upgrade_files/";
         uploadsService.save(path,file);
         //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
