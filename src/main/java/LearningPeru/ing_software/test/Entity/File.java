@@ -24,6 +24,9 @@ public class File {
     @Column
     private String link;
 
+    @Column
+    private String descripcion;
+
     //@JsonBackReference
     @ManyToOne
     @JsonIgnoreProperties("files")

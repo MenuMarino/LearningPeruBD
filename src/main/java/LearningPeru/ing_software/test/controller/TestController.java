@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -144,6 +145,13 @@ public class TestController {
         return new ResponseEntity<>(true,headers, HttpStatus.OK);
 
     }
+
+    @GetMapping(value="/download")
+    @ResponseBody
+    HttpEntity<Object> download() throws FileNotFoundException {
+         return uploadsService.download("application/pdf", "Guia_Laboratorio_11_2.pdf");
+    }
+
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody

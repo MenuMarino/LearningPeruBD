@@ -18,7 +18,7 @@ public class Upgrade_files {
     private Date date;
 
     @Column
-    private byte[] content;
+    private String contentLink;
 
     //@JsonBackReference
     @JsonIgnoreProperties("files_sent")
