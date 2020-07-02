@@ -8,8 +8,7 @@ import LearningPeru.ing_software.test.service.UploadsService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -132,11 +131,15 @@ public class TestController {
 
     @PostMapping(value="/test/uploads", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-    HttpEntity<Object> upload(@RequestParam("file") MultipartFile file) throws IOException {
+    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file) throws IOException {
         uploadsService.save(path,file);
-        return uploadsService.download("application/png",path+file.getOriginalFilename());
-
-
+        //return uploadsService.download("application/png",path+file.getOriginalFilename());
+        HttpHeaders headers= new HttpHeaders();
+        headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
+        headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+        headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
+        headers.add("Access-Control-Allow-Credentials", "true");
+        return new ResponseEntity<>(true,headers, HttpStatus.OK);
 
     }
 
