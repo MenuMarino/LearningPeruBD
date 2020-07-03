@@ -25,8 +25,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/test")
 public class TestController {
-    private String path="/home/lushop/Desktop/software/LearningPBD_CESAR/src/main/java/LearningPeru/ing_software/test/userFiles/";
-
     @Autowired
     UserService userService;
 
@@ -129,29 +127,6 @@ public class TestController {
         return userService.getAll();
         //Crear un material
     }
-
-    @PostMapping(value="/uploads/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @ResponseBody
-    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file, @PathVariable("id") Integer id) throws IOException {
-        String aux = path;
-        path = path + id + "/upgrade_files/";
-        uploadsService.save(path,file);
-        path = aux;
-        //return uploadsService.download("application/png",path+file.getOriginalFilename());
-        HttpHeaders headers= new HttpHeaders();
-        headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-        headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
-        headers.add("Access-Control-Allow-Credentials", "true");
-        return new ResponseEntity<>(true,headers, HttpStatus.OK);
-
-    }
-
-    @GetMapping(value="/download")
-    @ResponseBody
-    HttpEntity<Object> download() throws FileNotFoundException {
-         return uploadsService.download("application/pdf", "Guia_Laboratorio_11_2.pdf");
-    }
-
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
