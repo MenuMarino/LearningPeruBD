@@ -25,15 +25,144 @@ public class CoursesController {
 
     @PostMapping
     @ResponseBody
-    String initCourses(){
-
+    List<Course> initCourses(){
         //TODO iniciar
+        //Grado 1
         Course curso1=new Course();
         curso1.setName("Matematica");
-        curso1.setGrade(2);
-        curso1.setTheme("algebra");
+        curso1.setGrade(1);
+        curso1.setTheme("algebra 1");
         courseService.save(curso1);
-        return "DONE";
+        Course curso2=new Course();
+        curso2.setName("Fisica");
+        curso2.setGrade(1);
+        curso2.setTheme("MRU 1");
+        courseService.save(curso2);
+        Course curso3=new Course();
+        curso3.setName("Quimica");
+        curso3.setGrade(1);
+        curso3.setTheme("Atomos 1");
+        courseService.save(curso3);
+        Course curso4=new Course();
+        curso4.setName("Lenguaje");
+        curso4.setGrade(1);
+        curso4.setTheme("Sustantivos 1");
+        courseService.save(curso4);
+        Course curso5=new Course();
+        curso5.setName("Biologia");
+        curso5.setGrade(1);
+        curso5.setTheme("ADN 1");
+        courseService.save(curso5);
+
+        //Grado 2
+        Course curso6=new Course();
+        curso6.setName("Matematica");
+        curso6.setGrade(2);
+        curso6.setTheme("algebra 2");
+        courseService.save(curso6);
+        Course curso7=new Course();
+        curso7.setName("Fisica");
+        curso7.setGrade(2);
+        curso7.setTheme("MRU 2");
+        courseService.save(curso7);
+        Course curso8=new Course();
+        curso8.setName("Quimica");
+        curso8.setGrade(2);
+        curso8.setTheme("Atomos 2");
+        courseService.save(curso8);
+        Course curso9=new Course();
+        curso9.setName("Lenguaje");
+        curso9.setGrade(2);
+        curso9.setTheme("Sustantivos 2");
+        courseService.save(curso9);
+        Course curso10=new Course();
+        curso10.setName("Biologia");
+        curso10.setGrade(2);
+        curso10.setTheme("ADN 2");
+        courseService.save(curso10);
+
+        //Grado 3
+        Course curso11=new Course();
+        curso11.setName("Matematica");
+        curso11.setGrade(3);
+        curso11.setTheme("algebra 3");
+        courseService.save(curso11);
+        Course curso12=new Course();
+        curso12.setName("Fisica");
+        curso12.setGrade(3);
+        curso12.setTheme("MRU 3");
+        courseService.save(curso12);
+        Course curso13=new Course();
+        curso13.setName("Quimica");
+        curso13.setGrade(3);
+        curso13.setTheme("Atomos 3");
+        courseService.save(curso13);
+        Course curso14=new Course();
+        curso14.setName("Lenguaje");
+        curso14.setGrade(3);
+        curso14.setTheme("Sustantivos 3");
+        courseService.save(curso14);
+        Course curso15=new Course();
+        curso15.setName("Biologia");
+        curso15.setGrade(3);
+        curso15.setTheme("ADN 3");
+        courseService.save(curso15);
+
+        //Grado 4
+        Course curso16=new Course();
+        curso16.setName("Matematica");
+        curso16.setGrade(4);
+        curso16.setTheme("algebra 4");
+        courseService.save(curso16);
+        Course curso17=new Course();
+        curso17.setName("Fisica");
+        curso17.setGrade(4);
+        curso17.setTheme("MRU 4");
+        courseService.save(curso17);
+        Course curso18=new Course();
+        curso18.setName("Quimica");
+        curso18.setGrade(4);
+        curso18.setTheme("Atomos 4");
+        courseService.save(curso18);
+        Course curso19=new Course();
+        curso19.setName("Lenguaje");
+        curso19.setGrade(4);
+        curso19.setTheme("Sustantivos 4");
+        courseService.save(curso19);
+        Course curso20=new Course();
+        curso20.setName("Biologia");
+        curso20.setGrade(4);
+        curso20.setTheme("ADN 4");
+        courseService.save(curso20);
+
+        //Grado 5
+        Course curso21=new Course();
+        curso21.setName("Matematica");
+        curso21.setGrade(5);
+        curso21.setTheme("algebra 5");
+        courseService.save(curso21);
+        Course curso22=new Course();
+        curso22.setName("Fisica");
+        curso22.setGrade(5);
+        curso22.setTheme("MRU 5");
+        courseService.save(curso22);
+        Course curso23=new Course();
+        curso23.setName("Quimica");
+        curso23.setGrade(5);
+        curso23.setTheme("Atomos 5");
+        courseService.save(curso23);
+        Course curso24=new Course();
+        curso24.setName("Lenguaje");
+        curso24.setGrade(5);
+        curso24.setTheme("Sustantivos 5");
+        courseService.save(curso24);
+        Course curso25=new Course();
+        curso25.setName("Biologia");
+        curso25.setGrade(5);
+        curso25.setTheme("ADN 5");
+        courseService.save(curso25);
+
+        return courseService.getAll();
 
     }
 
