@@ -31,17 +31,16 @@ public class UploadsController {
 
     }
 
-    @GetMapping(value="/download/{type}/{path}")
+    @GetMapping(value="/download/{path}")
     @ResponseBody
     HttpEntity<Object> download(@PathVariable("type") Integer type,@PathVariable("path") String path) throws FileNotFoundException {
         String format="";
-        switch (type) {
-            case 1:
-                format = "application/json";
-            case 2:
-                format = "application/json";
-            case 3:
-                format = "video/mp4";
+        if (path.endsWith(".mp4")){
+            format = "video/mp4";
+        }else{
+            if (path.endsWith(".pdf")){
+                format = "application/pdf";
+            }
         }
         return uploadsService.download(format, path);
     }
