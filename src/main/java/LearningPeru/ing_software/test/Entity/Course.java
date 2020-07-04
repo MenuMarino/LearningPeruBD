@@ -25,6 +25,7 @@ public class Course {
     private String theme;
 
     //@JsonManagedReference
+
     @JsonIgnoreProperties("course")
     @OneToMany(
             mappedBy = "course",
@@ -32,14 +33,6 @@ public class Course {
             orphanRemoval = true
     )
     private List<Material> materiales;
-
-    public List<Material> getMateriales() {
-        return materiales;
-    }
-
-    public void setMateriales(List<Material> materiales) {
-        this.materiales = materiales;
-    }
 
     public Long getId() {
         return Id;
@@ -71,6 +64,14 @@ public class Course {
 
     public void setTheme(String theme) {
         this.theme = theme;
+    }
+
+    public List<Material> getMateriales() {
+        return materiales;
+    }
+
+    public void setMateriales(List<Material> materiales) {
+        this.materiales = materiales;
     }
 }
 

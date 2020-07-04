@@ -2,12 +2,18 @@ package LearningPeru.ing_software.test.controller;
 
 
 import LearningPeru.ing_software.test.Entity.Course;
+import LearningPeru.ing_software.test.Entity.Material;
+import LearningPeru.ing_software.test.repositories.CourseRepository;
+import LearningPeru.ing_software.test.repositories.MaterialRepository;
 import LearningPeru.ing_software.test.service.CourseService;
 import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,6 +22,12 @@ import java.util.List;
 public class CoursesController {
     @Autowired
     CourseService courseService;
+
+    @Autowired
+    CourseRepository courseRepository;
+
+    @Autowired
+    MaterialRepository materialRepository;
 
     @GetMapping
     @ResponseBody
@@ -32,7 +44,22 @@ public class CoursesController {
         curso1.setName("Matematica");
         curso1.setGrade(1);
         curso1.setTheme("algebra 1");
+        Material material1= new Material();
+        material1.setLearning_Points(420);
+        material1.setRatingPeople(69);
+
+        Material material2= new Material();
+        material2.setLearning_Points(500);
+        material2.setRatingPeople(10);
+
+        List<Material> temp= new ArrayList<>();
+        temp.add(material1);
+        temp.add(material2);
+        curso1.setMateriales(temp);
+
         courseService.save(curso1);
+
+
         Course curso2=new Course();
         curso2.setName("Fisica");
         curso2.setGrade(1);
@@ -162,16 +189,23 @@ public class CoursesController {
         curso25.setTheme("ADN 5");
         courseService.save(curso25);
 
-        return courseService.getAll();
+        return (List<Course>) courseRepository.findAll();
 
     }
 
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/search2")
     @ResponseBody
     List<Course> Search(@RequestBody Course course){
         return courseService.SpecificSearch(course);
     }
 
 
+
+
+    @GetMapping(value="/materials")
+    @ResponseBody
+    List<Material> asd(){
+        return (List<Material>) materialRepository.findAll();
+    }
 
 }

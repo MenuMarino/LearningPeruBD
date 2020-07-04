@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MaterialRepository extends CrudRepository<Material,Long> {
 
+
 }

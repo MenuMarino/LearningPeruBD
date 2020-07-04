@@ -4,6 +4,10 @@ import LearningPeru.ing_software.test.Entity.Course;
 import LearningPeru.ing_software.test.repositories.CourseRepository;
 import LearningPeru.ing_software.test.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -36,7 +40,7 @@ public class DefaultCourseService implements CourseService {
 
     @Override
     public List<Course> SpecificSearch( Course course) {
-        return courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
+        return  courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
     }
 
     @Override
@@ -47,5 +51,10 @@ public class DefaultCourseService implements CourseService {
             temp.add(course);
         }
         return temp;    }
+
+
+
+
+
 }
 
