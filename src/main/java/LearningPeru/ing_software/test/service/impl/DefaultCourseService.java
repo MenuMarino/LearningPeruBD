@@ -1,6 +1,7 @@
 package LearningPeru.ing_software.test.service.impl;
 
 import LearningPeru.ing_software.test.Entity.Course;
+import LearningPeru.ing_software.test.Entity.Material;
 import LearningPeru.ing_software.test.repositories.CourseRepository;
 import LearningPeru.ing_software.test.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class DefaultCourseService implements CourseService {
 
     @Override
     public List<Course> SpecificSearch( Course course) {
-        return  courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
+        return courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
     }
 
     @Override

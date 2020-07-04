@@ -47,11 +47,11 @@ public class CoursesController {
         Material material1= new Material();
         material1.setLearning_Points(420);
         material1.setRatingPeople(69);
-
+        material1.setCourse(curso1);
         Material material2= new Material();
         material2.setLearning_Points(500);
         material2.setRatingPeople(10);
-
+        material2.setCourse(curso1);
         List<Material> temp= new ArrayList<>();
         temp.add(material1);
         temp.add(material2);
