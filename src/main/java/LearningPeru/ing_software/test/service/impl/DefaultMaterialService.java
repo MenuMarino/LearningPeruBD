@@ -22,4 +22,19 @@ public class DefaultMaterialService implements MaterialService {
         materialRepository.findAll().forEach(temp::add);
         return temp;
     }
+
+    @Override
+    public Material save(Material material) {
+        return materialRepository.save(material);
+    }
+
+    @Override
+    public Long get_max() {
+        return materialRepository.maxID();
+    }
+
+    @Override
+    public Material find_by_id(Long Id) {
+        return materialRepository.findById(Id).get();
+    }
 }

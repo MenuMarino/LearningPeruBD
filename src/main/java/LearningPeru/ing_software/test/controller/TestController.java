@@ -70,7 +70,7 @@ public class TestController {
         user3.setType(Type_of_user.TEACHER);
         user3.setSex(true);
         user3.setCreated(new Date());
-        userService.save(user3);
+        user3=userService.save(user3);
 
         User user4=new User();
         user4.setUsername("silvialabandera");
@@ -92,13 +92,15 @@ public class TestController {
         user5.setCreated(new Date());
         userService.save(user5);
 
-        Material material = new Material();
         Course course = new Course();
-        course.setId((long) 1);
         course.setName("Matematica");
-        course.setTheme("Vectores");
-        course = courseService.save(course);
-        material.setId((long) 1);
+        course.setTheme("algebra 1");
+        course.setGrade(1);
+        course = courseService.SpecificSearch(course);
+        List<Material> material_del_curso= course.getMateriales();
+
+
+        Material material = new Material();
         material.setCourse(course);
         material.setName("Test material");
         material.setDescription("Marcusss");
@@ -107,18 +109,29 @@ public class TestController {
         material.setRatingPeople(69);
         Date date = new Date();
         material.setDate(date);
+
+///////////////////////////////////////////////
+
         File file = new File();
-        file.setId((long) 1);
         file.setDate(date);
         file.setLink("facebook.com");
+        file.setMaterial_from(material);
         List<File> l = new ArrayList<>();
         l.add(file);
         material.setFiles(l);
 
-        //josemaria
+        ///// añadir el material al curso
+        material_del_curso.add(material);
+        course.setMateriales(material_del_curso);
         material.setWho_posted(user3);
+        courseService.save(course);
+        ///TODO CORRECTO :U
+
+        //josemaria
+
 
         List<Material> nuevoMaterial= new ArrayList<>();
+        material= materialService.find_by_id(materialService.get_max());
         nuevoMaterial.add(material);
         user3.setMyMaterials(nuevoMaterial);
 

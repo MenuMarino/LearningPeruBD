@@ -17,5 +17,5 @@ public interface CourseRepository extends PagingAndSortingRepository<Course,Long
 
     List<Course> findAllByNameAndGrade(String name,Integer grade);
 
-    List<Course> findByNameAndGradeAndTheme(String name, Integer grade, String theme);
+    Course findByNameAndGradeAndTheme(String name, Integer grade, String theme);
 }

@@ -205,13 +205,14 @@ public class CoursesController {
         curso25.setTheme("ADN 5");
         courseService.save(curso25);
 
-        return courseService.getAll();
-
+        List<Course> aaa= courseService.getAll();
+        int a= 0;
+        return aaa;
     }
 
     @GetMapping(value = "/search")
     @ResponseBody
-    List<Course> Search(@RequestBody Course course){
+    Course Search(@RequestBody Course course){
         return courseService.SpecificSearch(course);
     }
 
@@ -221,11 +222,11 @@ public class CoursesController {
         return courseService.getAllThemes(course);
     }
 
-    @GetMapping(value = "/search2")
+    /*@GetMapping(value = "/search2")
     @ResponseBody
     List<Course> Search2(@RequestBody Course course){
         return courseService.SpecificSearch2(course);
-    }
+    }*/
 
 
 

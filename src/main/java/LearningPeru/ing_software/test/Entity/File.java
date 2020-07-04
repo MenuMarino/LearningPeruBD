@@ -34,6 +34,30 @@ public class File {
     @JsonIgnoreProperties("files")
     private Material material_from;
 
+    public Type_of_file getType() {
+        return type;
+    }
+
+    public void setType(Type_of_file type) {
+        this.type = type;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Material getMaterial_from() {
+        return material_from;
+    }
+
+    public void setMaterial_from(Material material_from) {
+        this.material_from = material_from;
+    }
+
     public Long getId() {
         return Id;
     }

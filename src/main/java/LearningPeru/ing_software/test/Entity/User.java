@@ -65,10 +65,10 @@ public class User {
     @PrimaryKeyJoinColumn
     private List<Material> favouriteMaterials;
 
-    //@JsonManagedReference
+    //@JsonManagedReferencefiles
     @OneToMany(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
+            mappedBy = "user"
+            ,cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Rating> ratings;

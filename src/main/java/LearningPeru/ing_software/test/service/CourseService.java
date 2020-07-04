@@ -12,12 +12,12 @@ public interface CourseService {
 
     List<String> getAllNames();
 
-    List<Course> SpecificSearch(Course course);
+    Course SpecificSearch(Course course);
 
 
     List<Course> getAll();
 
     List<String> getAllThemes(Course course);
 
-    List<Course> SpecificSearch2(Course course);
+    //List<Course> SpecificSearch2(Course course);
 }

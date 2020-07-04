@@ -34,7 +34,7 @@ public class Course {
             orphanRemoval = true
     )
     //@OrderBy("Learning_Points DESC,ratingPeople ASC")
-    @OrderBy("Learning_Points/ratingPeople DESC")
+    //@OrderBy("Learning_Points/ratingPeople DESC")
     private List<Material> materiales;
 
     public Long getId() {

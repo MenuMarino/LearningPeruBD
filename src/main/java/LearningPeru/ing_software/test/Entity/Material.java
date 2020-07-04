@@ -50,7 +50,7 @@ public class Material {
 
     //@JsonBackReference
     @JsonIgnoreProperties("myMaterials")
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     private User who_posted;
 
     @Column
