@@ -23,13 +23,13 @@ public class CoursesController {
     @Autowired
     CourseService courseService;
 
-    @Autowired
-    CourseRepository courseRepository;
-
-    @Autowired
-    MaterialRepository materialRepository;
-
     @GetMapping
+    @ResponseBody
+    List<Course> getALL(){
+        return courseService.getAll();
+    }
+
+    @GetMapping("/name")
     @ResponseBody
     List<String> GetCourses(){
         return courseService.getAllNames();
@@ -189,23 +189,23 @@ public class CoursesController {
         curso25.setTheme("ADN 5");
         courseService.save(curso25);
 
-        return (List<Course>) courseRepository.findAll();
+        return courseService.getAll();
 
     }
 
-    @GetMapping(value = "/search2")
+    @GetMapping(value = "/search")
     @ResponseBody
     List<Course> Search(@RequestBody Course course){
         return courseService.SpecificSearch(course);
     }
 
-
-
-
-    @GetMapping(value="/materials")
+    @GetMapping(value="/themes")
     @ResponseBody
-    List<Material> asd(){
-        return (List<Material>) materialRepository.findAll();
+    List<String> Themes(@RequestBody Course course){
+        return courseService.getAllThemes(course);
     }
+
+
+
 
 }

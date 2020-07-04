@@ -48,7 +48,6 @@ public class DefaultCourseService implements CourseService {
     public List<Course> getAll() {
         List<Course> temp= new ArrayList<>();
         for (Course course:courseRepository.findAll()){
-            course.setMateriales(null);
             temp.add(course);
         }
         return temp;
