@@ -44,17 +44,33 @@ public class CoursesController {
         curso1.setName("Matematica");
         curso1.setGrade(1);
         curso1.setTheme("algebra 1");
+
         Material material1= new Material();
         material1.setLearning_Points(420);
-        material1.setRatingPeople(69);
+        material1.setRatingPeople(19);
         material1.setCourse(curso1);
+
         Material material2= new Material();
         material2.setLearning_Points(500);
         material2.setRatingPeople(10);
         material2.setCourse(curso1);
+
+        Material material3= new Material();
+        material3.setLearning_Points(777);
+        material3.setRatingPeople(14);
+        material3.setCourse(curso1);
+
+        Material material4= new Material();
+        material4.setLearning_Points(666);
+        material4.setRatingPeople(17);
+        material4.setCourse(curso1);
+
+
         List<Material> temp= new ArrayList<>();
         temp.add(material1);
         temp.add(material2);
+        temp.add(material3);
+        temp.add(material4);
         curso1.setMateriales(temp);
 
         courseService.save(curso1);
@@ -204,6 +220,13 @@ public class CoursesController {
     List<String> Themes(@RequestBody Course course){
         return courseService.getAllThemes(course);
     }
+
+    @GetMapping(value = "/search2")
+    @ResponseBody
+    List<Course> Search2(@RequestBody Course course){
+        return courseService.SpecificSearch2(course);
+    }
+
 
 
 

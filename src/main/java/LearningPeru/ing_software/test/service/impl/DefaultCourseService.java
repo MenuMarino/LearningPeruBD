@@ -64,5 +64,16 @@ public class DefaultCourseService implements CourseService {
         }
         return temp;
     }
+
+    @Override
+    public List<Course> SpecificSearch2(Course course) {
+
+      return courseRepository.findByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme()/*, Sort.by(Sort.Direction.DESC,"materiales")*/);
+        /*return courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme(),
+                PageRequest.of(1,20,Sort.by("materiales.Learning_Points").ascending()
+                        .and(Sort.by("materiales.ratingPeople").descending())));
+    */
+    }
+
 }
 

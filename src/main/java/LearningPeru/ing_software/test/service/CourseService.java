@@ -18,4 +18,6 @@ public interface CourseService {
     List<Course> getAll();
 
     List<String> getAllThemes(Course course);
+
+    List<Course> SpecificSearch2(Course course);
 }

@@ -2,6 +2,7 @@ package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.core.annotation.Order;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,6 +33,8 @@ public class Course {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    //@OrderBy("Learning_Points DESC,ratingPeople ASC")
+    @OrderBy("Learning_Points/ratingPeople DESC")
     private List<Material> materiales;
 
     public Long getId() {
