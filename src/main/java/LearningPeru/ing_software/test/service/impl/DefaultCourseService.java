@@ -51,11 +51,19 @@ public class DefaultCourseService implements CourseService {
             course.setMateriales(null);
             temp.add(course);
         }
-        return temp;    }
+        return temp;
+    }
 
+    @Override
+    public List<String> getAllThemes(Course course) {
 
-
-
-
+        List<String> temp= new ArrayList<>();
+        for (Course curso:courseRepository.findAllByNameAndGrade(course.getName(),course.getGrade())){
+            if (!temp.contains(curso.getTheme())){
+                temp.add(curso.getTheme());
+            }
+        }
+        return temp;
+    }
 }
 

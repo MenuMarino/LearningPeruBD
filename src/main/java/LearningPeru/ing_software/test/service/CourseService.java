@@ -16,4 +16,6 @@ public interface CourseService {
 
 
     List<Course> getAll();
+
+    List<String> getAllThemes(Course course);
 }
