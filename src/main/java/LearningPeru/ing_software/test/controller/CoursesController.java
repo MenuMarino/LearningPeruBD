@@ -19,8 +19,8 @@ public class CoursesController {
 
     @GetMapping
     @ResponseBody
-    List<Course> GetCourses(){
-        return courseService.getAll();
+    List<String> GetCourses(){
+        return courseService.getAllNames();
     }
 
     @PostMapping

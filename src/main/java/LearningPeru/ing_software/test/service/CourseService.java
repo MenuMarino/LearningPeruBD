@@ -8,7 +8,9 @@ public interface CourseService {
 
     Course save(Course course);
 
-    List<Course> getAll();
+    List<String> getAllNames();
 
     List<Course> SpecificSearch(Course course);
+
+    List<Course> getAll();
 }

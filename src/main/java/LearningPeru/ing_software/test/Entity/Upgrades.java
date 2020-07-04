@@ -3,6 +3,7 @@ package LearningPeru.ing_software.test.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -37,7 +38,11 @@ public class Upgrades {
     private List<Upgrade_files> files_sent;
 
     @Column
-    private Date date;
+    @CreatedDate
+    private Date solicitation;
+
+    @Column
+    private Date response;
 
     @Column
     private Boolean aproved;
@@ -88,12 +93,20 @@ public class Upgrades {
         this.upgraded_to = upgraded_to;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getSolicitation() {
+        return solicitation;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setSolicitation(Date solicitation) {
+        this.solicitation = solicitation;
+    }
+
+    public Date getResponse() {
+        return response;
+    }
+
+    public void setResponse(Date response) {
+        this.response = response;
     }
 
     public Boolean getAproved() {

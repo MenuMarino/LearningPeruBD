@@ -2,6 +2,7 @@ package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,6 +18,7 @@ public class Rating {
     private Integer learningPoints;
 
     @Column
+    @CreatedDate
     private Date created;
 
     //@JsonBackReference

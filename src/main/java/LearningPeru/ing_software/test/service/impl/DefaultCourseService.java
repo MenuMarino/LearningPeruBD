@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DefaultCourseService implements CourseService {
@@ -22,11 +23,13 @@ public class DefaultCourseService implements CourseService {
     }
 
     @Override
-    public List<Course> getAll() {
-        List<Course> temp= new ArrayList<>();
+    public List<String> getAllNames() {
+
+        List<String> temp= new ArrayList<>();
         for (Course course:courseRepository.findAll()){
-            course.setMateriales(null);
-            temp.add(course);
+            if (!temp.contains(course.getName())){
+                temp.add(course.getName());
+            }
         }
         return temp;
     }
@@ -35,5 +38,14 @@ public class DefaultCourseService implements CourseService {
     public List<Course> SpecificSearch( Course course) {
         return courseRepository.findAllByNameAndGradeAndTheme(course.getName(),course.getGrade(),course.getTheme());
     }
+
+    @Override
+    public List<Course> getAll() {
+        List<Course> temp= new ArrayList<>();
+        for (Course course:courseRepository.findAll()){
+            course.setMateriales(null);
+            temp.add(course);
+        }
+        return temp;    }
 }
 
