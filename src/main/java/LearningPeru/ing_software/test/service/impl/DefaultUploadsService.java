@@ -27,8 +27,7 @@ public class DefaultUploadsService implements UploadsService {
 
     @Override
     public ResponseEntity<Object> download(String type, String path) throws FileNotFoundException {
-        String MegaPath= "/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
-        File file = new File(MegaPath+path);
+        File file = new File(path);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
         if (type.equals("application/pdf")){

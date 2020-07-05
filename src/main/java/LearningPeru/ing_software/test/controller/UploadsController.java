@@ -14,7 +14,7 @@ import java.io.IOException;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/uploads")
 public class UploadsController {
-    private String path="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+    private String src="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
 
     @Autowired
     UploadsService uploadsService;
@@ -32,10 +32,12 @@ public class UploadsController {
 
     }
 
-    @GetMapping(value="/download/{path}")
+    @GetMapping(value="/download/{id}/{dir}/{file}")
     @ResponseBody
-    HttpEntity<Object> download(@PathVariable("path") String path) throws FileNotFoundException {
+    HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
         String format="";
+        String path=id+"/"+dir+"/"+file;
+        System.out.println(path);
         if (path.endsWith(".mp4")){
             format = "video/mp4";
         }else{
@@ -43,7 +45,7 @@ public class UploadsController {
                 format = "application/pdf";
             }
         }
-        return uploadsService.download(format, path);
+        return uploadsService.download(format, src+path);
     }
 
 
