@@ -10,6 +10,9 @@ import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -219,7 +222,7 @@ public class CoursesController {
         course.setName(name);
         return courseService.SpecificSearch(course);
     }
-
+/*
     @GetMapping(value="/themes/{name}/{grade}")
     @ResponseBody
     List<String> Themes(@PathVariable("name") String name,@PathVariable("grade") Integer grade ){
@@ -228,7 +231,20 @@ public class CoursesController {
         course.setName(name);
         return courseService.getAllThemes(course);
 }
+*/
+    @GetMapping(value="/themes/{name}/{grade}")
+    @ResponseBody
+    ResponseEntity<List<String>> Themes(@PathVariable("name") String name,@PathVariable("grade") Integer grade ) {
+        Course course = new Course();
+        course.setGrade(grade);
+        course.setName(name);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+        headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
+        headers.add("Access-Control-Allow-Credentials", "true");
+        return new ResponseEntity<>(courseService.getAllThemes(course), headers, HttpStatus.OK);
 
+    }
     /*@GetMapping(value = "/search2")
     @ResponseBody
     List<Course> Search2(@RequestBody Course course){
