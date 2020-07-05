@@ -213,7 +213,7 @@ public class CoursesController {
         return aaa;
     }
 
-    @GetMapping(value = "/search/{name}/{grade}/{theme}")
+    @PostMapping(value = "/search")
     @ResponseBody
     Course Search(@PathVariable("name") String name,@PathVariable("grade") Integer grade,@PathVariable("theme") String theme){
         Course course = new Course();
@@ -232,12 +232,9 @@ public class CoursesController {
         return courseService.getAllThemes(course);
 }
 */
-    @GetMapping(value="/themes")
+    @PostMapping(value="/themes")
     @ResponseBody
-    ResponseEntity<List<String>> Themes(@RequestParam String name,@RequestParam Integer grade ) {
-        Course course= new Course();
-        course.setName(name);
-        course.setGrade(grade);
+    ResponseEntity<List<String>> Themes(@RequestBody Course course){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
