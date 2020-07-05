@@ -33,8 +33,7 @@ public class Course {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    //@OrderBy("Learning_Points DESC,ratingPeople ASC")
-    //@OrderBy("Learning_Points/ratingPeople DESC")
+    @OrderBy("Learning_Points DESC")
     private List<Material> materiales;
 
     public Long getId() {

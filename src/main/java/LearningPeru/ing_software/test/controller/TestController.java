@@ -92,65 +92,10 @@ public class TestController {
         user5.setCreated(new Date());
         userService.save(user5);
 
-        /*Course course = new Course();
-        course.setName("Matematica");
-        course.setTheme("algebra 1");
-        course.setGrade(1);
-        course = courseService.SpecificSearch(course);
-        List<Material> material_del_curso= course.getMateriales();
-
-
-        Material material = new Material();
-        material.setCourse(course);
-        material.setName("Test material");
-        material.setDescription("Marcusss");
-        material.setVisits(20);
-        material.setDownloads(15);
-        material.setRatingPeople(69);
-        Date date = new Date();
-        material.setDate(date);
-
-///////////////////////////////////////////////
-
-        File file = new File();
-        file.setDate(date);
-        file.setLink("facebook.com");
-        file.setMaterial_from(material);
-        List<File> l = new ArrayList<>();
-        l.add(file);
-        material.setFiles(l);
-
-        ///// añadir el material al curso
-        material_del_curso.add(material);
-        course.setMateriales(material_del_curso);
-        material.setWho_posted(user3);
-        courseService.save(course);
-        ///TODO CORRECTO :U
-
-        //josemaria
-
-
-        List<Material> nuevoMaterial= new ArrayList<>();
-        material= materialService.find_by_id(materialService.get_max());
-        nuevoMaterial.add(material);
-        user3.setMyMaterials(nuevoMaterial);
-
-        userService.save(user3);
-
-        return userService.getAll();
-        //Crear un material
-
-
-
-         */
-
         ////////IMPLEMENTACION ANTERIOR (no se si nos quedamos con esta porque tiene mas sentido
         Material material = new Material();
         Course course = new Course();
-        /*course.setName("Matematica");
-        course.setTheme("Vectores");
-        course = courseService.save(course);
-        */
+
         course.setName("Matematica");
         course.setTheme("algebra 1");
         course.setGrade(1);

@@ -38,18 +38,8 @@ public class AuthController {
         }
     }
 
-    /*
-        @GetMapping(value = "/login")
-        @ResponseBody
-        User login(@RequestBody User user) {
-            return userService.findbyCredentials(user);
-        }
 
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    User FindAllByUsername(@RequestBody User user){
-        return userService.findbyusername(user);
-    }*/
+
 
     @GetMapping(value="/all")
     @ResponseBody

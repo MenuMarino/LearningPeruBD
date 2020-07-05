@@ -210,9 +210,13 @@ public class CoursesController {
         return aaa;
     }
 
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/search/{name}/{grade}/{theme}")
     @ResponseBody
-    Course Search(@RequestBody Course course){
+    Course Search(@PathVariable("name") String name,@PathVariable("grade") Integer grade,@PathVariable("theme") String theme){
+        Course course = new Course();
+        course.setGrade(grade);
+        course.setTheme(theme);
+        course.setName(name);
         return courseService.SpecificSearch(course);
     }
 
