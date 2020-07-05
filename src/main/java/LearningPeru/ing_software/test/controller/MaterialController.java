@@ -29,7 +29,7 @@ public class MaterialController {
 
     @PostMapping(value="/create")
     @ResponseBody
-    User save(NewMaterialBean materialBean){
+    User save(@RequestBody NewMaterialBean materialBean){
         User who_posted =userService.findbyId(materialBean.getId());
         List<Material> user_material_list=who_posted.getMyMaterials();
         Course course= new Course();
