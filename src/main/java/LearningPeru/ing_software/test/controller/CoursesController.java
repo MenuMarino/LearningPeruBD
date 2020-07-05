@@ -234,13 +234,14 @@ public class CoursesController {
 */
     @PostMapping(value="/themes")
     @ResponseBody
-    ResponseEntity<List<String>> Themes(@RequestBody Course course){
-        HttpHeaders headers = new HttpHeaders();
+    List<String> Themes(@RequestBody Course course){
+        /*HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
         headers.add("Access-Control-Allow-Credentials", "true");
         return new ResponseEntity<>(courseService.getAllThemes(course), headers, HttpStatus.OK);
-
+        */
+        return courseService.getAllThemes(course);
     }
     /*@GetMapping(value = "/search2")
     @ResponseBody
