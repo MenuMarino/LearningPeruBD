@@ -19,9 +19,10 @@ public class UploadsController {
     @Autowired
     UploadsService uploadsService;
 
-    @PostMapping(value="/uploads/{path}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value="/uploads/{id}/{dir}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file, @PathVariable("path") String path) throws IOException {
+    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
+        String path=id+"/"+dir+"/";
         uploadsService.save(path,file);
         //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
