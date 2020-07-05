@@ -213,37 +213,22 @@ public class CoursesController {
         return aaa;
     }
 
-    @GetMapping(value = "/search/{name/{grade}/{theme}")
+    @GetMapping(value = "/search")
     @ResponseBody
-    Course Search(@PathVariable("name") String name,@PathVariable("grade") Integer grade,@PathVariable("theme") String theme){
+    Course Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme){
         Course course = new Course();
         course.setGrade(grade);
         course.setTheme(theme);
         course.setName(name);
         return courseService.SpecificSearch(course);
     }
-/*
-    @GetMapping(value="/themes/{name}/{grade}")
-    @ResponseBody
-    List<String> Themes(@PathVariable("name") String name,@PathVariable("grade") Integer grade ){
-    Course course = new Course();
-        course.setGrade(grade);
-        course.setName(name);
-        return courseService.getAllThemes(course);
-}
-*/
+
     @GetMapping(value="/themes")
     @ResponseBody
     List<String> Themes(@RequestParam("name") String name,@RequestParam("grade") Integer grade){
         Course course = new Course();
         course.setGrade(grade);
         course.setName(name);
-        /*HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
-        headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
-        headers.add("Access-Control-Allow-Credentials", "true");
-        return new ResponseEntity<>(courseService.getAllThemes(course), headers, HttpStatus.OK);
-        */
         return courseService.getAllThemes(course);
     }
     /*@GetMapping(value = "/search2")
