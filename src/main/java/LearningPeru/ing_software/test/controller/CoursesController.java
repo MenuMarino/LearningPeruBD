@@ -234,7 +234,10 @@ public class CoursesController {
 */
     @GetMapping(value="/themes")
     @ResponseBody
-    ResponseEntity<List<String>> Themes(@RequestParam Course course ) {
+    ResponseEntity<List<String>> Themes(@RequestParam String name,@RequestParam Integer grade ) {
+        Course course= new Course();
+        course.setName(name);
+        course.setGrade(grade);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
