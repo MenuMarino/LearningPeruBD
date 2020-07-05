@@ -213,7 +213,7 @@ public class CoursesController {
         return aaa;
     }
 
-    @PostMapping(value = "/search")
+    @GetMapping(value = "/search/{name/{grade}/{theme}")
     @ResponseBody
     Course Search(@PathVariable("name") String name,@PathVariable("grade") Integer grade,@PathVariable("theme") String theme){
         Course course = new Course();
@@ -232,7 +232,7 @@ public class CoursesController {
         return courseService.getAllThemes(course);
 }
 */
-    @PostMapping(value="/themes")
+    @GetMapping(value="/themes")
     @ResponseBody
     List<String> Themes(@RequestParam("name") String name,@RequestParam("grade") Integer grade){
         Course course = new Course();

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.attribute.standard.Media;
 import java.io.*;
 
 @Service
@@ -26,11 +27,13 @@ public class DefaultUploadsService implements UploadsService {
 
     @Override
     public ResponseEntity<Object> download(String type, String path) throws FileNotFoundException {
-        String MegaPath= "/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/1";
-        File file = new File(MegaPath+"/materiales/"+path);
+        String MegaPath= "/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+        File file = new File(MegaPath+path);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_PDF);
+        if (type.equals("application/pdf")){
+            headers.setContentType(MediaType.APPLICATION_PDF);
+        }
         headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
         headers.add("Pragma", "no-cache");
