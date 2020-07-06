@@ -1,5 +1,6 @@
 package LearningPeru.ing_software.test.service;
 
+import LearningPeru.ing_software.test.Entity.Course;
 import LearningPeru.ing_software.test.Entity.Material;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface MaterialService {
     Long get_max();
 
     Material find_by_id(Long Id );
+
+    List<Material> getAllByCourse(Course course,Integer page);
 }

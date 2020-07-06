@@ -26,6 +26,9 @@ public class MaterialController {
     @Autowired
     CourseService courseService;
 
+    @Autowired
+    MaterialService materialService;
+
 
     @PostMapping(value="/create")
     @ResponseBody
@@ -69,18 +72,13 @@ public class MaterialController {
 
     @GetMapping(value = "/search")
     @ResponseBody
-    List<Material> Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme) {
+    List<Material> Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme,@RequestParam("page") Integer page) {
         Course course = new Course();
         course.setGrade(grade);
         course.setTheme(theme);
         course.setName(name);
         course = courseService.SpecificSearch(course);
-        List<Material> retorno = new ArrayList<>();
-        for (Material material : course.getMateriales()) {
-            if (material.getEstado() == 2) {
-                retorno.add(material);
-            }
-        }
-        return retorno;
+
+        return materialService.getAllByCourse(course,page);
     }
 }

@@ -1,10 +1,13 @@
 package LearningPeru.ing_software.test.service.impl;
 
+import LearningPeru.ing_software.test.Entity.Course;
 import LearningPeru.ing_software.test.Entity.Material;
 import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.repositories.MaterialRepository;
 import LearningPeru.ing_software.test.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,5 +39,10 @@ public class DefaultMaterialService implements MaterialService {
     @Override
     public Material find_by_id(Long Id) {
         return materialRepository.findById(Id).get();
+    }
+
+    @Override
+    public List<Material> getAllByCourse(Course course,Integer page) {
+        return materialRepository.findAllByCourse(course, PageRequest.of(page,10,Sort.by(Sort.Order.desc("Learning_Points"),Sort.Order.asc("ratingPeople"))));
     }
 }

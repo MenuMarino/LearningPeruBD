@@ -69,7 +69,7 @@ public class CoursesController {
         Material material4= new Material();
         material4.setLearning_Points(666);
         material4.setRatingPeople(17);
-        material4.setEstado(2);
+        material4.setEstado(1);
         material4.setCourse(curso1);
 
 
