@@ -1,8 +1,6 @@
 package LearningPeru.ing_software.test.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -36,7 +34,7 @@ public class Material {
     private Date date;
 
     @Column
-    private Integer Learning_Points;
+    private Integer learningPoints;
 
     //@JsonBackReference
     @ManyToOne
@@ -151,12 +149,12 @@ public class Material {
         this.ratingPeople = ratingPeople;
     }
 
-    public Integer getLearning_Points() {
-        return Learning_Points;
+    public Integer getLearningPoints() {
+        return learningPoints;
     }
 
-    public void setLearning_Points(Integer learning_Points) {
-        Learning_Points = learning_Points;
+    public void setLearningPoints(Integer learningPoints) {
+        this.learningPoints = learningPoints;
     }
 
     public Course getCourse() {

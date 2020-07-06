@@ -97,31 +97,31 @@ public class TestController {
         Course course = new Course();
 
         course.setName("Matematica");
-        course.setTheme("algebra 1");
+        course.setTheme("algebra_1");
         course.setGrade(1);
         course = courseService.SpecificSearch(course);
         List<Material> material_del_curso= course.getMateriales();
 
         Material material1= new Material();
-        material1.setLearning_Points(419);
+        material1.setLearningPoints(419);
         material1.setEstado(2);
         material1.setRatingPeople(19);
         material1.setCourse(course);
 
         Material material2= new Material();
-        material2.setLearning_Points(500);
+        material2.setLearningPoints(500);
         material2.setEstado(2);
         material2.setRatingPeople(10);
         material2.setCourse(course);
 
         Material material3= new Material();
-        material3.setLearning_Points(777);
+        material3.setLearningPoints(777);
         material3.setRatingPeople(14);
         material3.setCourse(course);
         material3.setEstado(2);
 
         Material material4= new Material();
-        material4.setLearning_Points(666);
+        material4.setLearningPoints(666);
         material4.setRatingPeople(17);
         material4.setEstado(1);
         material4.setCourse(course);
@@ -140,6 +140,7 @@ public class TestController {
         material.setVisits(20);
         material.setDownloads(15);
         material.setRatingPeople(69);
+        material.setLearningPoints(800);
         Date date = new Date();
         material.setDate(date);
 

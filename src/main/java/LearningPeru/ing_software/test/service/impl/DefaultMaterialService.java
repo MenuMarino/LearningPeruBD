@@ -43,6 +43,6 @@ public class DefaultMaterialService implements MaterialService {
 
     @Override
     public List<Material> getAllByCourse(Course course,Integer page) {
-        return materialRepository.findAllByCourse(course, PageRequest.of(page,10,Sort.by(Sort.Order.desc("Learning_Points"),Sort.Order.asc("ratingPeople"))));
+        return materialRepository.findAllByCourse(course, PageRequest.of(page,10,Sort.by(Sort.Order.desc("LearningPoints"),Sort.Order.asc("ratingPeople"))));
     }
 }

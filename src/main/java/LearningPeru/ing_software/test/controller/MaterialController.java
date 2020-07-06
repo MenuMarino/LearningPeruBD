@@ -45,7 +45,7 @@ public class MaterialController {
         Material material= new Material();
         material.setEstado(0);
         material.setRatingPeople(0);
-        material.setLearning_Points(0);
+        material.setLearningPoints(0);
         material.setDownloads(0);
         material.setVisits(0);
         material.setDate(new Date());
