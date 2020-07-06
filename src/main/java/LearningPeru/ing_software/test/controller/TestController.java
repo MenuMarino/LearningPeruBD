@@ -108,6 +108,7 @@ public class TestController {
         material1.setRatingPeople(19);
         material1.setCourse(course);
         material1.setWho_posted(user3);
+        material1.setName("ecuaciones1");
 
         Material material2= new Material();
         material2.setLearningPoints(500);
@@ -115,6 +116,7 @@ public class TestController {
         material2.setRatingPeople(10);
         material2.setCourse(course);
         material2.setWho_posted(user3);
+        material2.setName("polinomios");
 
         Material material3= new Material();
         material3.setLearningPoints(777);
@@ -122,6 +124,7 @@ public class TestController {
         material3.setCourse(course);
         material3.setEstado(2);
         material3.setWho_posted(user3);
+        material3.setName("funciones");
 
         Material material4= new Material();
         material4.setLearningPoints(666);
@@ -129,6 +132,7 @@ public class TestController {
         material4.setEstado(1);
         material4.setCourse(course);
         material4.setWho_posted(user3);
+        material4.setName("algebra lineal");
 
         material_del_curso.add(material1);
         material_del_curso.add(material2);
