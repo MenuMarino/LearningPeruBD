@@ -12,6 +12,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -64,5 +65,22 @@ public class MaterialController {
         return userService.save(who_posted);
 
 
+    }
+
+    @GetMapping(value = "/search")
+    @ResponseBody
+    List<Material> Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme) {
+        Course course = new Course();
+        course.setGrade(grade);
+        course.setTheme(theme);
+        course.setName(name);
+        course = courseService.SpecificSearch(course);
+        List<Material> retorno = new ArrayList<>();
+        for (Material material : course.getMateriales()) {
+            if (material.getEstado() == 2) {
+                retorno.add(material);
+            }
+        }
+        return retorno;
     }
 }

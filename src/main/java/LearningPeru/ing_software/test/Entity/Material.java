@@ -54,7 +54,7 @@ public class Material {
     private User who_posted;
 
     @Column
-    private Boolean deleted;
+    private Integer estado; //0: creado //1 enviado a curar (espera) 2 curado 3 eliminado
 
 
     @OneToOne
@@ -95,12 +95,12 @@ public class Material {
         this.description = description;
     }
 
-    public Boolean getDeleted() {
-        return deleted;
+    public Integer getEstado() {
+        return estado;
     }
 
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
+    public void setEstado(Integer estado) {
+        this.estado = estado;
     }
 
     public User getWho_aproved() {
