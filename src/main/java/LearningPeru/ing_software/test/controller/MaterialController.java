@@ -41,6 +41,7 @@ public class MaterialController {
         List<Material> materialList= course.getMateriales();
 
         Material material= new Material();
+        material.setEstado(0);
         material.setRatingPeople(0);
         material.setLearning_Points(0);
         material.setDownloads(0);
