@@ -107,25 +107,28 @@ public class TestController {
         material1.setEstado(2);
         material1.setRatingPeople(19);
         material1.setCourse(course);
+        material1.setWho_posted(user3);
 
         Material material2= new Material();
         material2.setLearningPoints(500);
         material2.setEstado(2);
         material2.setRatingPeople(10);
         material2.setCourse(course);
+        material2.setWho_posted(user3);
 
         Material material3= new Material();
         material3.setLearningPoints(777);
         material3.setRatingPeople(14);
         material3.setCourse(course);
         material3.setEstado(2);
+        material3.setWho_posted(user3);
 
         Material material4= new Material();
         material4.setLearningPoints(666);
         material4.setRatingPeople(17);
         material4.setEstado(1);
         material4.setCourse(course);
-
+        material4.setWho_posted(user3);
 
         material_del_curso.add(material1);
         material_del_curso.add(material2);
