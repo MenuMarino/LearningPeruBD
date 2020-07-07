@@ -16,7 +16,7 @@ public class FileController {
     @Autowired
     FileService fileService;
 
-    @GetMapping
+
     @ResponseBody
     List<File> getFilesFromMaterialId(@RequestParam("id") Long id){
         return fileService.get_by_material(id);

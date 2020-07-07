@@ -156,11 +156,12 @@ public class TestController {
         material.setDate(date);
 
         File file = new File();
-        file.setDate(date);file.setLink("facebook.com");
+        file.setDate(date);
+        file.setLink("facebook.com");
         List<File> l = new ArrayList<>();
         l.add(file);
         material.setFiles(l);
-
+        file.setMaterial_from(material);
         //josemaria
         material.setWho_posted(user3);
 
