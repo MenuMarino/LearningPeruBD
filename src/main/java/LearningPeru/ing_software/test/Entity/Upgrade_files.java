@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name = "upgrade_files")
 public class Upgrade_files {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @Column

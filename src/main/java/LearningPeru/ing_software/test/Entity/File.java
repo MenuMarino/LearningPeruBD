@@ -11,10 +11,11 @@ import java.util.Date;
 @Table(name="file")
 public class File {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    //sacamos user (revisar)
+    @Column
+    private String name;
 
     @Column
     @CreatedDate
@@ -80,5 +81,13 @@ public class File {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
