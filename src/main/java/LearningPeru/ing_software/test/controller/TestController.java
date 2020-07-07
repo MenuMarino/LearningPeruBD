@@ -173,7 +173,7 @@ public class TestController {
         File file3 = new File();
         file3.setName("PRUEBA DE MP4");
         file3.setDate(date);
-        file3.setLink("/assets/prueba.mp4");
+        file3.setLink("assets/prueba.mp4");
         file3.setType(Type_of_file.VIDEO);
         file3.setDescripcion("Esta es nuestro test de video");
 

@@ -81,4 +81,14 @@ public class MaterialController {
 
         return materialService.getAllByCourse(course,page);
     }
+
+    @PostMapping("/curate")
+    @ResponseBody
+    Boolean SendToCurator(@RequestBody Long id){
+        Material material=materialService.find_by_id(id);
+        material.setEstado(1);
+        materialService.save(material);
+        return true;
+    }
+
 }
