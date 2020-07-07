@@ -84,7 +84,7 @@ public class MaterialController {
 
     @PostMapping("/curate/{id}")
     @ResponseBody
-    Boolean SendToCurator(@RequestParam("id") Long id){
+    Boolean SendToCurator(@PathVariable("id") Long id){
         Material material=materialService.find_by_id(id);
         material.setEstado(1);
         materialService.save(material);
