@@ -5,9 +5,11 @@ import LearningPeru.ing_software.test.Entity.Material;
 import LearningPeru.ing_software.test.service.FileService;
 import LearningPeru.ing_software.test.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DefaultFileService implements FileService {
 
     @Autowired
