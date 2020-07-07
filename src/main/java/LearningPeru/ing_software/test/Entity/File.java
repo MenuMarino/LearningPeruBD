@@ -14,7 +14,8 @@ public class File {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
-    //sacamos user (revisar)
+    @Column
+    private String name;
 
     @Column
     @CreatedDate
@@ -80,5 +81,13 @@ public class File {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
