@@ -109,6 +109,7 @@ public class TestController {
         material1.setCourse(course);
         material1.setWho_posted(user3);
         material1.setName("ecuaciones1");
+        material1.setDescription("ecuaciones basicas");
 
         Material material2= new Material();
         material2.setLearningPoints(500);
@@ -117,6 +118,7 @@ public class TestController {
         material2.setCourse(course);
         material2.setWho_posted(user3);
         material2.setName("polinomios");
+        material2.setDescription("Polinomios de primer grado");
 
         Material material3= new Material();
         material3.setLearningPoints(777);
@@ -125,6 +127,7 @@ public class TestController {
         material3.setEstado(2);
         material3.setWho_posted(user3);
         material3.setName("funciones");
+        material3.setDescription("funciones lineales");
 
         Material material4= new Material();
         material4.setLearningPoints(666);
@@ -133,6 +136,7 @@ public class TestController {
         material4.setCourse(course);
         material4.setWho_posted(user3);
         material4.setName("algebra lineal");
+        material4.setDescription("matrices");
 
         material_del_curso.add(material1);
         material_del_curso.add(material2);
@@ -155,9 +159,9 @@ public class TestController {
         file.setDate(date);
         file.setLink("facebook.com");
         List<File> l = new ArrayList<>();
+        file.setMaterial_from(material);
         l.add(file);
         material.setFiles(l);
-
         //josemaria
         material.setWho_posted(user3);
 
