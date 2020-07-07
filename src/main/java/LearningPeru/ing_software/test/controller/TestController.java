@@ -159,9 +159,9 @@ public class TestController {
         file.setDate(date);
         file.setLink("facebook.com");
         List<File> l = new ArrayList<>();
+        file.setMaterial_from(material);
         l.add(file);
         material.setFiles(l);
-        file.setMaterial_from(material);
         //josemaria
         material.setWho_posted(user3);
 
