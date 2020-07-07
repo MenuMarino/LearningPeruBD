@@ -56,6 +56,14 @@ public class Course {
         return grade;
     }
 
+    public Course(String _name, Integer _grade, String _theme){
+        this.name = _name;
+        this.theme = _theme;
+        this.grade = _grade;
+    }
+
+    public Course(){};
+
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
@@ -75,6 +83,8 @@ public class Course {
     public void setMateriales(List<Material> materiales) {
         this.materiales = materiales;
     }
+
+
 }
 
 
