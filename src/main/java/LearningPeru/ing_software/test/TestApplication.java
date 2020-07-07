@@ -26,7 +26,7 @@ public class TestApplication {
             courseRepository.save(new Course("Quimica",3,"Atomos,_moleculas_e_iones"));
             courseRepository.save(new Course("Quimica",3,"La_tabla_periodica"));
             courseRepository.save(new Course("Quimica",3,"Nomenclatura_de_los_compuestos"));
-            courseRepository.save(new Course("Quimica",3,"Relaciones_de_masa_en_las_reacciones_quimicas "));
+            courseRepository.save(new Course("Quimica",3,"Relaciones_de_masa_en_las_reacciones_quimicas"));
             courseRepository.save(new Course("Quimica",3,"Estequiometria_de_reaccion"));
             courseRepository.save(new Course("Quimica",3,"Relaciones_de_masa_en_solución"));
 
@@ -40,23 +40,23 @@ public class TestApplication {
             courseRepository.save(new Course("Quimica",4,"Balance_de_ecuaciones,_metodo_Ion_electron-_medio_acido"));
             courseRepository.save(new Course("Quimica",4,"Estequiometria_I"));
             courseRepository.save(new Course("Quimica",4,"Estequiometria_II"));
-            courseRepository.save(new Course("Quimica",4,"Masa equivalente_y_equivalente_gramo"));
+            courseRepository.save(new Course("Quimica",4,"Masa_equivalente_y_equivalente_gramo"));
             courseRepository.save(new Course("Quimica",4,"Solubilidad"));
-            courseRepository.save(new Course("Quimica",4,"Molaridad_y_Normalidad "));
+            courseRepository.save(new Course("Quimica",4,"Molaridad_y_Normalidad_"));
             courseRepository.save(new Course("Quimica",4,"Dilucion_y_mezcla_de_soluciones"));
             courseRepository.save(new Course("Quimica",4,"Neutralizacion_de_una_solucion"));
             courseRepository.save(new Course("Quimica",4,"Teorias_de_acidos_y_bases"));
 
-             courseRepository.save(new Course("Quimica",5,"Introducción_a_la_química orgánica"));
+             courseRepository.save(new Course("Quimica",5,"Introducción_a_la_química_orgánica"));
              courseRepository.save(new Course("Quimica",5,"Hidrocarburos,_Alcanos"));
              courseRepository.save(new Course("Quimica",5,"Alquenos_y_alquinos"));
              courseRepository.save(new Course("Quimica",5,"Compuestos_ciclicos_y_aromaticos"));
              courseRepository.save(new Course("Quimica",5,"Densidad"));
-             courseRepository.save(new Course("Quimica",5,"Estructura_atomica "));
+             courseRepository.save(new Course("Quimica",5,"Estructura_atomica"));
              courseRepository.save(new Course("Quimica",5,"Quimica_nuclear"));
              courseRepository.save(new Course("Quimica",5,"Números_cuanticos"));
              courseRepository.save(new Course("Quimica",5,"Configuracion_electronica"));
-             courseRepository.save(new Course("Quimica",5,"Tabla periodica"));
+             courseRepository.save(new Course("Quimica",5,"Tabla_periodica"));
              courseRepository.save(new Course("Quimica",5,"Enlace_quimico_I"));
              courseRepository.save(new Course("Quimica",5,"Enlace_quimico_II"));
              courseRepository.save(new Course("Quimica",5,"Unidades_quimicas_de_masa"));
@@ -146,7 +146,7 @@ public class TestApplication {
             courseRepository.save(new Course("Historia",1,"Europa_Feudal"));
             courseRepository.save(new Course("Historia",1,"Burguesia"));
             courseRepository.save(new Course("Historia",1,"Cruzadas"));
-            courseRepository.save(new Course("Historia",1,"Iglesia Medieval"));
+            courseRepository.save(new Course("Historia",1,"Iglesia_Medieval"));
             courseRepository.save(new Course("Historia",1,"Crisis_del_Siglo_XIV"));
             courseRepository.save(new Course("Historia",1,"Sociedad_mediaval"));
             courseRepository.save(new Course("Historia",1,"La_guerra_de_los_cien_años"));
