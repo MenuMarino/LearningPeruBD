@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: LearningPeru.ing_software.test.TestApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.677 s - in LearningPeru.ing_software.test.TestApplicationTests
