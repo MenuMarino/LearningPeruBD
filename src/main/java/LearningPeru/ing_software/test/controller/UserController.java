@@ -4,9 +4,11 @@ import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.service.MaterialService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +38,7 @@ public class UserController {
         return userService.save(temp);
     }
 
-    @PostMapping(value = "favourite/{userid}/{materialid}")
+    @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
     Boolean addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
         try {
@@ -45,11 +47,35 @@ public class UserController {
             Material material = materialService.find_by_id(materialid);
             usersFavouriteMaterials.add(material);
             user.setFavouriteMaterials(usersFavouriteMaterials);
-            userService.save(user);
             return true;
         }
         catch (Exception e){
             return false;
+        }
+
+    }
+
+    @DeleteMapping(value = "/favourite/{userid}/{materialid}")
+    @ResponseBody
+    List<Material> deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+        try {
+            User user = userService.findbyId(userid);
+            List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
+            int index=0;
+            for (Material material:usersFavouriteMaterials){
+                if (material.getId().equals(materialid)){
+                    usersFavouriteMaterials.remove(index);
+                    break;
+                }else{
+                    index++;
+                }
+            }
+            user.setFavouriteMaterials(usersFavouriteMaterials);
+            user = userService.save(user);
+            return user.getFavouriteMaterials();
+        }
+        catch (Exception e){
+            return null;
         }
 
     }
