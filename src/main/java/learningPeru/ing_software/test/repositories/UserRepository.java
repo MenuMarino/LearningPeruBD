@@ -1,0 +1,15 @@
+package learningPeru.ing_software.test.repositories;
+
+import learningPeru.ing_software.test.Entity.User;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface UserRepository extends CrudRepository<User,Long> {
+
+    User findByUsername(String username);
+
+    User findByUsernameAndPassword (String username, String password);
+
+
+
+}
