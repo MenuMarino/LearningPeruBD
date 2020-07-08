@@ -36,8 +36,14 @@ public class RatingController {
             List<Rating> usersRatingList= user.getRatings();
 
             Material material = materialService.findById(newRatingBean.getMaterialId());
-            material.setLearningPoints(material.getLearningPoints()+newRatingBean.getLearningPoints());
-            material.setRatingPeople(material.getRatingPeople()+1);
+            Integer newLearningPoints=material.getLearningPoints()+newRatingBean.getLearningPoints();
+            material.setLearningPoints(newLearningPoints);
+            Integer newRatingPeople=material.getRatingPeople()+1;
+            material.setRatingPeople(newRatingPeople);
+            System.out.println(newLearningPoints);
+            System.out.println(newRatingPeople);
+
+
             List<Rating> ratingList= material.getRatings();
 
 

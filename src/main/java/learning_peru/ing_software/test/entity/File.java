@@ -39,7 +39,6 @@ public class File {
         this.type = type;
     }
 
-
     public Material getMaterialFrom() {
         return materialFrom;
     }
