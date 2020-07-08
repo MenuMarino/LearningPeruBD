@@ -19,7 +19,7 @@ public class AuthController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseBody
     public HttpEntity<User> register(@RequestBody User user){
 
@@ -45,7 +45,7 @@ public class AuthController {
         return userService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/login")
+    @PostMapping( value="/login")
     @ResponseBody
     public User login(@RequestBody User user) {
         User temp= userService.findbyCredentials(user);
