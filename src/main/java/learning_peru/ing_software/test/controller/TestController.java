@@ -140,8 +140,8 @@ public class TestController {
         material.setDescription("Marcusss");
         material.setVisits(20);
         material.setDownloads(15);
-        material.setRatingPeople(69);
-        material.setLearningPoints(800);
+        material.setRatingPeople(1);
+        material.setLearningPoints(2);
         Date date = new Date();
         material.setDate(date);
 

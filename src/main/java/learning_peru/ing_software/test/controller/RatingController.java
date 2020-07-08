@@ -72,7 +72,7 @@ public class RatingController {
             rating.setCreated(new Date());
             ratingService.save(rating);
 
-            //after 
+            //after
             learningPoints+=newRatingBean.getLearningPoints();
             material.setLearningPoints(learningPoints);
             return materialService.save(material);
