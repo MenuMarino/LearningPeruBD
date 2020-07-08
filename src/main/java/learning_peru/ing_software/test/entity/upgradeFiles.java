@@ -20,7 +20,7 @@ public class upgradeFiles {
     @Column
     private String contentLink;
 
-    @JsonIgnoreProperties("files_sent")
+    @JsonIgnoreProperties("filesSent")
     @ManyToOne
     private Upgrades upgrade;
 

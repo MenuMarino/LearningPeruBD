@@ -53,7 +53,7 @@ public class User {
     @Column
     private Date created;
 
-    @JsonIgnoreProperties("who_posted")
+    @JsonIgnoreProperties("whoPosted")
     @OneToMany(mappedBy = "whoPosted",cascade= CascadeType.ALL)
     @OrderBy("id desc")
     private List<Material> myMaterials;

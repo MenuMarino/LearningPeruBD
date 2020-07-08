@@ -40,7 +40,7 @@ public class Material {
     @JsonIgnoreProperties("materiales")
     private Course course;
 
-    @JsonIgnoreProperties("material_from")
+    @JsonIgnoreProperties("materialFrom")
     @OneToMany(mappedBy = "materialFrom",cascade= CascadeType.ALL)
     private List<File> files;
 
