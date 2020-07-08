@@ -21,12 +21,10 @@ public class Rating {
     @CreatedDate
     private Date created;
 
-    //@JsonBackReference
     @JsonIgnoreProperties("ratings")
     @ManyToOne
     private Material material;
 
-    //@JsonBackReference
     @JsonIgnoreProperties("ratings")
     @ManyToOne
     private User user;
@@ -61,14 +59,6 @@ public class Rating {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public Material getMaterials() {
-        return material;
-    }
-
-    public void setMaterials(Material materials) {
-        this.material = materials;
     }
 
     public User getUser() {

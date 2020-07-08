@@ -24,7 +24,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody
-    User update_user(@RequestBody User user){
+    public User update_user(@RequestBody User user){
         User temp = userService.findbyId(user.getId());
         if( user.getUsername()!=null ){
             temp.setUsername(user.getUsername());
@@ -40,7 +40,7 @@ public class UserController {
 
     @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    User addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    public User addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
@@ -53,7 +53,7 @@ public class UserController {
 
     @DeleteMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    User deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    public User deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();

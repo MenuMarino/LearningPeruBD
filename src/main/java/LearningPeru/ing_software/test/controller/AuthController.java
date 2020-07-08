@@ -23,7 +23,7 @@ public class AuthController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    HttpEntity<User> register(@RequestBody User user){
+    public HttpEntity<User> register(@RequestBody User user){
 
         User tmp = userService.findbyusername(user);
         HttpHeaders headers= new HttpHeaders();
@@ -43,13 +43,13 @@ public class AuthController {
 
     @GetMapping(value="/all")
     @ResponseBody
-    List<User> getall(){
+    public List<User> getall(){
         return userService.getAll();
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/login")
     @ResponseBody
-    User login(@RequestBody User user) {
+    public User login(@RequestBody User user) {
         User temp= userService.findbyCredentials(user);
         if (temp!=null) {
             temp.setPassword(null);

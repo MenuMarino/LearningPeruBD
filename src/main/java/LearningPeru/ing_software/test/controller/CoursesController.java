@@ -28,19 +28,19 @@ public class CoursesController {
 
     @GetMapping
     @ResponseBody
-    List<Course> getALL(){
+    public List<Course> getALL(){
         return courseService.getAll();
     }
 
     @GetMapping("/name")
     @ResponseBody
-    List<String> GetCourses(){
+    public List<String> GetCourses(){
         return courseService.getAllNames();
     }
 
     @PostMapping
     @ResponseBody
-    List<Course> initCourses(){
+    public List<Course> initCourses(){
         //TODO iniciar
         //Grado 1
         Course curso1=new Course();
@@ -188,17 +188,13 @@ public class CoursesController {
 
     @GetMapping(value="/themes")
     @ResponseBody
-    List<String> Themes(@RequestParam("name") String name,@RequestParam("grade") Integer grade){
+    public List<String> Themes(@RequestParam("name") String name,@RequestParam("grade") Integer grade){
         Course course = new Course();
         course.setGrade(grade);
         course.setName(name);
         return courseService.getAllThemes(course);
     }
-    /*@GetMapping(value = "/search2")
-    @ResponseBody
-    List<Course> Search2(@RequestBody Course course){
-        return courseService.SpecificSearch2(course);
-    }*/
+
 
 
 

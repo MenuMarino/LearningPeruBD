@@ -28,7 +28,6 @@ public class File {
     private String link;
 
 
-    //@JsonBackReference
     @ManyToOne
     @JsonIgnoreProperties("files")
     private Material material_from;

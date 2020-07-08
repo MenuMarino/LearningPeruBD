@@ -39,7 +39,7 @@ public class TestController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    List<User> tester(){
+    public List<User> tester(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         User user= new User();
         user.setUsername("jbellido");
@@ -199,7 +199,7 @@ public class TestController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    List<Material> getmateriales(){
+    public List<Material> getmateriales(){
         return materialService.getALL();
     }
 

@@ -22,7 +22,6 @@ public class Upgrade_files {
     @Column
     private String contentLink;
 
-    //@JsonBackReference
     @JsonIgnoreProperties("files_sent")
     @ManyToOne
     private Upgrades upgrade;

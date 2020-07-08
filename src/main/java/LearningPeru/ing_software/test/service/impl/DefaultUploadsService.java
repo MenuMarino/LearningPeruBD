@@ -22,6 +22,7 @@ public class DefaultUploadsService implements UploadsService {
         FileOutputStream fout = new FileOutputStream(convertFile);
         fout.write(file.getBytes());
         fout.close();
+
         return true;
     }
 

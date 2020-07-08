@@ -21,10 +21,9 @@ public class UploadsController {
 
     @PostMapping(value="/uploads/{id}/{dir}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
+    public HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
         String path=id+"/"+dir+"/";
         uploadsService.save(path,file);
-        //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
         headers.add("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
@@ -35,7 +34,7 @@ public class UploadsController {
 
     @GetMapping(value="/download/{id}/{dir}/{file}")
     @ResponseBody
-    HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
+    public HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
         String format="";
         String path=id+"/"+dir+"/"+file;
         System.out.println(path);

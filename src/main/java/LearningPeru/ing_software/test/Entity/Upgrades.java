@@ -28,7 +28,6 @@ public class Upgrades {
     @Column
     private Type_of_user upgraded_to;
 
-    //@JsonManagedReference
     @JsonIgnoreProperties("upgrade")
     @OneToMany(
             mappedBy = "upgrade",

@@ -21,12 +21,12 @@ public class User {
     private Long id;
 
     @Column
-    private String name;    //
+    private String name;
     @Column
-    private String lastname;    //
+    private String lastname;
 
     @Column(unique = true)
-    private String email;       //
+    private String email;
 
     @Column
     private String Institucion;
@@ -35,13 +35,13 @@ public class User {
     private String Especialidad;
 
     @Column(unique = true)
-    private String username;      //
+    private String username;
 
     @Column
-    private String password;        //
+    private String password;
 
     @Column
-    private Date birth;            //
+    private Date birth;
 
     @Column
     private Boolean sex;
@@ -50,13 +50,12 @@ public class User {
     private Integer grade;
 
     @Column
-    private Type_of_user type; //     STUDENT, TWAITING, TEACHER, CWAITING, CURATOR, ADMIN;
+    private Type_of_user type;
 
     @CreatedDate
     @Column
     private Date created;
 
-    //@JsonManagedReference
     @JsonIgnoreProperties("who_posted")
     @OneToMany(mappedBy = "who_posted",cascade= CascadeType.ALL)
     @OrderBy("id desc")
@@ -66,7 +65,6 @@ public class User {
     @PrimaryKeyJoinColumn
     private List<Material> favouriteMaterials;
 
-    //@JsonManagedReferencefiles
     @OneToMany(
             mappedBy = "user"
             ,cascade = CascadeType.ALL,
@@ -74,14 +72,6 @@ public class User {
     )
     private List<Rating> ratings;
 
-
-    /*public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }*/
 
     public String getInstitucion() { return Institucion;  }
 
@@ -168,11 +158,6 @@ public class User {
         this.password = password;
     }
 
-
-    public boolean isSex() {
-        return sex;
-    }
-
     public void setSex(boolean sex) {
         this.sex = sex;
     }
@@ -195,10 +180,6 @@ public class User {
 
     public Boolean getSex() {
         return sex;
-    }
-
-    public void setSex(Boolean sex) {
-        this.sex = sex;
     }
 
     public Date getCreated() {
