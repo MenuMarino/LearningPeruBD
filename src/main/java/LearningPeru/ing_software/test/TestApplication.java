@@ -29,6 +29,8 @@ public class TestApplication {
             String ingles = "ingles";
             String matematica = "Matematica";
             String biologia = "Biologia";
+            String Vocabulary= "Vocabulary";
+            String Genetica = "Genetica";
 
             courseRepository.save(new Course(quimica,3,"Introduccion_a_la_química"));
             courseRepository.save(new Course(quimica,3,"Atomos,_moleculas_e_iones"));
@@ -79,11 +81,11 @@ public class TestApplication {
             courseRepository.save(new Course(quimica,5,"Electrolisis"));
             courseRepository.save(new Course(quimica,5,"Funciones_quimicas_organicas"));
 
-            courseRepository.save(new Course(comunicacion,1,"Acentuacion"));
-            courseRepository.save(new Course(comunicacion,1,"Signos_de_puntuacion"));
-            courseRepository.save(new Course(comunicacion,1,"Uso_de_mayusculas"));
+            courseRepository.save(new Course(comunicacion,1,"AcentuacionI"));
+            courseRepository.save(new Course(comunicacion,1,"Signos_de_puntuacionI"));
+            courseRepository.save(new Course(comunicacion,1,"Uso_de_mayusculasI"));
             courseRepository.save(new Course(comunicacion,1,"Queismo_y_dequeismo"));
-            courseRepository.save(new Course(comunicacion,1,"Homonimia"));
+            courseRepository.save(new Course(comunicacion,1,"HomonimiaI"));
             courseRepository.save(new Course(comunicacion,1,"Textos_literarios"));
             courseRepository.save(new Course(comunicacion,1,"Ensayos"));
             courseRepository.save(new Course(comunicacion,1,"Generos_literarios"));
@@ -95,11 +97,11 @@ public class TestApplication {
             courseRepository.save(new Course(comunicacion,1,"cicroconferencias"));
             courseRepository.save(new Course(comunicacion,1,"cebates"));
 
-            courseRepository.save(new Course(comunicacion,2,"Acentuacion"));
-            courseRepository.save(new Course(comunicacion,2,"Signos_de_puntuacion"));
-            courseRepository.save(new Course(comunicacion,2,"Uso_de_mayusculas"));
+            courseRepository.save(new Course(comunicacion,2,"AcentuacionII"));
+            courseRepository.save(new Course(comunicacion,2,"Signos_de_puntuacionII"));
+            courseRepository.save(new Course(comunicacion,2,"Uso_de_mayusculasII"));
             courseRepository.save(new Course(comunicacion,2,"Palabras_de_escritura_problematica"));
-            courseRepository.save(new Course(comunicacion,2,"Homonimia"));
+            courseRepository.save(new Course(comunicacion,2,"HomonimiaII"));
             courseRepository.save(new Course(comunicacion,2,"Estrategias_de_estructuracion_de_ideas"));
             courseRepository.save(new Course(comunicacion,2,"Conectores"));
             courseRepository.save(new Course(comunicacion,2,"Articulos"));
@@ -113,11 +115,11 @@ public class TestApplication {
             courseRepository.save(new Course(comunicacion,2,"Exposicion"));
             courseRepository.save(new Course(comunicacion,2,"Compresion_de_textos"));
 
-            courseRepository.save(new Course(comunicacion,3,"Acentuacion"));
-            courseRepository.save(new Course(comunicacion,3,"Signos_de_puntuacion"));
-            courseRepository.save(new Course(comunicacion,3,"Uso_de_mayusculas"));
+            courseRepository.save(new Course(comunicacion,3,"AcentuacionIII"));
+            courseRepository.save(new Course(comunicacion,3,"Signos_de_puntuacionIII"));
+            courseRepository.save(new Course(comunicacion,3,"Uso_de_mayusculasIII"));
             courseRepository.save(new Course(comunicacion,3,"Palabras_de_escritura_problematica"));
-            courseRepository.save(new Course(comunicacion,3,"Homonimia"));
+            courseRepository.save(new Course(comunicacion,3,"HomonimiaIII"));
             courseRepository.save(new Course(comunicacion,3,"Lenguaje_academico"));
             courseRepository.save(new Course(comunicacion,3,"Metodologia_de_la_investigacion"));
             courseRepository.save(new Course(comunicacion,3,"Literatura_mundial"));
@@ -209,11 +211,11 @@ public class TestApplication {
             courseRepository.save(new Course(ingles,1,"Modals"));
             courseRepository.save(new Course(ingles,1,"Present_perfect_and_past_simple"));
             courseRepository.save(new Course(ingles,1,"Future_forms"));
-            courseRepository.save(new Course(ingles,1,"Conditionals"));
+            courseRepository.save(new Course(ingles,1,"ConditionalsI"));
             courseRepository.save(new Course(ingles,1,"Past_perfect"));
             courseRepository.save(new Course(ingles,1,"Modal_passive"));
             courseRepository.save(new Course(ingles,1,"Articles"));
-            courseRepository.save(new Course(ingles,1,"Vocabulary"));
+            courseRepository.save(new Course(ingles,1,Vocabulary));
 
             courseRepository.save(new Course(ingles,2,"Subject_and_object_questions"));
             courseRepository.save(new Course(ingles,2,"Present_tense"));
@@ -221,8 +223,8 @@ public class TestApplication {
             courseRepository.save(new Course(ingles,2,"Present_perfect_and_past_simple"));
             courseRepository.save(new Course(ingles,2,"Future_simple"));
             courseRepository.save(new Course(ingles,2,"Passive_voice"));
-            courseRepository.save(new Course(ingles,2,"Conditionals"));
-            courseRepository.save(new Course(ingles,2,"Vocabulary"));
+            courseRepository.save(new Course(ingles,2,"ConditionalsII"));
+            courseRepository.save(new Course(ingles,2,Vocabulary));
 
             courseRepository.save(new Course(ingles,3,"Simple,_Continuous_and_Perfect_review"));
             courseRepository.save(new Course(ingles,3,"Present_perfect_simple_and_continuous"));
@@ -230,8 +232,8 @@ public class TestApplication {
             courseRepository.save(new Course(ingles,3,"Phrasal_verbs"));
             courseRepository.save(new Course(ingles,3,"Narrative_tenses"));
             courseRepository.save(new Course(ingles,3,"Modals_in_the_past"));
-            courseRepository.save(new Course(ingles,3,"Conditionals"));
-            courseRepository.save(new Course(ingles,3,"Vocabulary"));
+            courseRepository.save(new Course(ingles,3,"ConditionalsIII"));
+            courseRepository.save(new Course(ingles,3,Vocabulary));
 
             courseRepository.save(new Course(ingles,4,"Linguistic_Dominance"));
             courseRepository.save(new Course(ingles,4,"Cultural_identity"));
@@ -241,7 +243,7 @@ public class TestApplication {
             courseRepository.save(new Course(ingles,4,"Mental_health"));
             courseRepository.save(new Course(ingles,4,"Eating_disorders"));
             courseRepository.save(new Course(ingles,4,"Alternative_medicine"));
-            courseRepository.save(new Course(ingles,4,"Vocabulary"));
+            courseRepository.save(new Course(ingles,4,Vocabulary));
 
             courseRepository.save(new Course(ingles,5,"Stereotypes"));
             courseRepository.save(new Course(ingles,5,"Education"));
@@ -249,7 +251,7 @@ public class TestApplication {
             courseRepository.save(new Course(ingles,5,"Substance_abuse"));
             courseRepository.save(new Course(ingles,5,"Not_yet,_Jayette"));
             courseRepository.save(new Course(ingles,5,"Advertising"));
-            courseRepository.save(new Course(ingles,5,"Vocabulary"));
+            courseRepository.save(new Course(ingles,5,Vocabulary));
 
             courseRepository.save(new Course(matematica,1,"Conjuntos"));
             courseRepository.save(new Course(matematica,1,"Relaciones_binarias"));
@@ -322,7 +324,7 @@ public class TestApplication {
             courseRepository.save(new Course(biologia,2,"Nutricion_humana"));
             courseRepository.save(new Course(biologia,2,"Coordinacion_nerviosa"));
             courseRepository.save(new Course(biologia,2,"La_transmicion_nerviosa"));
-            courseRepository.save(new Course(biologia,2,"Genetica"));
+            courseRepository.save(new Course(biologia,2,Genetica));
             courseRepository.save(new Course(biologia,2,"Salud_y_enfermedad"));
             courseRepository.save(new Course(biologia,2,"Calentamiento_global"));
             courseRepository.save(new Course(biologia,2,"Potabilizacion_del_agua"));
@@ -336,13 +338,13 @@ public class TestApplication {
             courseRepository.save(new Course(biologia,3,"Salud_y_fisiologia_humana"));
             courseRepository.save(new Course(biologia,3,"Mecanismo_de_regulacion"));
             courseRepository.save(new Course(biologia,3,"Funcion_de_reproduccion"));
-            courseRepository.save(new Course(biologia,3,"Genetica"));
+            courseRepository.save(new Course(biologia,3,Genetica));
             courseRepository.save(new Course(biologia,3,"Origen_y_evolucion_de_la_vida"));
             courseRepository.save(new Course(biologia,3,"Ecologia_y_evolucion"));
 
             courseRepository.save(new Course(biologia,4,"La_quimica_de_la_vida"));
             courseRepository.save(new Course(biologia,4,"Celulas"));
-            courseRepository.save(new Course(biologia,4,"Genetica"));
+            courseRepository.save(new Course(biologia,4,Genetica));
             courseRepository.save(new Course(biologia,4   ,"Salud_y_fisiologia_humana"));
 
             courseRepository.save(new Course(biologia,5,"Salud"));
