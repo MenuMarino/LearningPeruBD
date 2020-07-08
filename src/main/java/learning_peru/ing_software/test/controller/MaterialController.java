@@ -50,6 +50,8 @@ public class MaterialController {
         material.setDate(new Date());
         material.setDescription(materialBean.getDescription());
         material.setName(materialBean.getName());
+        material=materialService.save(material);
+
         materialList.add(material);
         userMaterialList.add(material);
 
