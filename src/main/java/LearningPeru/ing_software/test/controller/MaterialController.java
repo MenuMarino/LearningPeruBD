@@ -92,11 +92,11 @@ public class MaterialController {
     }*/
     @PostMapping("/status/{id}/{status}")
     @ResponseBody
-    Boolean SendToCurator(@PathVariable("id") Long id, @PathVariable("status") Integer status){
+    List<Material> ChangeStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status){
         Material material=materialService.find_by_id(id);
         material.setStatus(status);
         materialService.save(material);
-        return true;
+        return material.getWho_posted().getMyMaterials();
     }
 
 }
