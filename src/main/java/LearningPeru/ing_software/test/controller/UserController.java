@@ -40,17 +40,18 @@ public class UserController {
 
     @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    Boolean addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    List<Material> addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
         try {
             User user = userService.findbyId(userid);
             List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
             Material material = materialService.find_by_id(materialid);
             usersFavouriteMaterials.add(material);
             user.setFavouriteMaterials(usersFavouriteMaterials);
-            return true;
+            user =userService.save(user);
+            return user.getFavouriteMaterials();
         }
         catch (Exception e){
-            return false;
+            return null;
         }
 
     }
