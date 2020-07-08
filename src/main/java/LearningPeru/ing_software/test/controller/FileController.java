@@ -3,10 +3,8 @@ package LearningPeru.ing_software.test.controller;
 import LearningPeru.ing_software.test.Beans.NewFileBean;
 import LearningPeru.ing_software.test.Entity.File;
 import LearningPeru.ing_software.test.Entity.Material;
-import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.service.FileService;
 import LearningPeru.ing_software.test.service.MaterialService;
-import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
