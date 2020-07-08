@@ -80,4 +80,15 @@ public class RatingController {
         }
     }
 
+    @GetMapping(value = "/searchrate/{userid}/{materialid}")
+    @ResponseBody
+    Integer searchIfRated(@PathVariable("userid") Long userid,@PathVariable("materialid") Long materialid){
+        Rating rating =ratingService.getRatingByUserAndMaterial(userid,materialid);
+        if (rating==null){
+            return null;
+        }else{
+            return rating.getLearningPoints();
+        }
+    }
+
 }
