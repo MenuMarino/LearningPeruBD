@@ -14,6 +14,6 @@ public interface MaterialRepository extends PagingAndSortingRepository<Material,
     @Query(value = "SELECT max(Id) FROM material",nativeQuery = true)
     Long maxID();
 
-    List<Material> findAllByCourseAndEstado(Course course,Integer estado, Pageable pageable);
+    List<Material> findAllByCourseAndStatus(Course course,Integer status, Pageable pageable);
 
 }
