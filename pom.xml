@@ -67,5 +67,11 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <sonar.projectKey>cesar214567_LearningPeruBD</sonar.projectKey>
+        <sonar.organization>cesar214567</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>f57004bb4a7ed23f5d31b388ff04b8f5c0a15239</sonar.login>
+    </properties>
 
 </project>
