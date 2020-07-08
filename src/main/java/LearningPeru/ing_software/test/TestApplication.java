@@ -295,6 +295,57 @@ public class TestApplication {
             courseRepository.save(new Course("Matematica",5,"Modelacion_lineal"));
             courseRepository.save(new Course("Matematica",5,"Introduccion_al_calculo_diferencial"));
             courseRepository.save(new Course("Matematica",5,"Calculo_integral"));
+
+            courseRepository.save(new Course("Biologia",1,"Unidades_de_medicion"));
+            courseRepository.save(new Course("Biologia",1,"La_materia"));
+            courseRepository.save(new Course("Biologia",1,"El_carbono"));
+            courseRepository.save(new Course("Biologia",1,"Dinamica_del_ecosistema"));
+            courseRepository.save(new Course("Biologia",1,"La_vida_en_una_celula"));
+            courseRepository.save(new Course("Biologia",1,"La_energia_en_una_celula"));
+            courseRepository.save(new Course("Biologia",1,"Las_plantas"));
+            courseRepository.save(new Course("Biologia",1,"Organizacion_del_ecosistema"));
+            courseRepository.save(new Course("Biologia",1,"Los_caminos_de_la_evoluacion"));
+            courseRepository.save(new Course("Biologia",1,"Nanotecnologia"));
+            courseRepository.save(new Course("Biologia",1,"Celulas_madre"));
+
+            courseRepository.save(new Course("Biologia",2,"Movimiento_y_fuerza"));
+            courseRepository.save(new Course("Biologia",2,"El_calor"));
+            courseRepository.save(new Course("Biologia",2,"El_agua"));
+            courseRepository.save(new Course("Biologia",2,"Biomoleculas_inorganicas"));
+            courseRepository.save(new Course("Biologia",2,"Biomoleculas_organicas"));
+            courseRepository.save(new Course("Biologia",2,"Nutricion_humana"));
+            courseRepository.save(new Course("Biologia",2,"Coordinacion_nerviosa"));
+            courseRepository.save(new Course("Biologia",2,"La_transmicion_nerviosa"));
+            courseRepository.save(new Course("Biologia",2,"Genetica"));
+            courseRepository.save(new Course("Biologia",2,"Salud_y_enfermedad"));
+            courseRepository.save(new Course("Biologia",2,"Calentamiento_global"));
+            courseRepository.save(new Course("Biologia",2,"Potabilizacion_del_agua"));
+            courseRepository.save(new Course("Biologia",2,"Rehabilitacion"));
+
+            courseRepository.save(new Course("Biologia",3,"Enlaces_y_funciones_quimicas"));
+            courseRepository.save(new Course("Biologia",3,"Reacciones_quimicas"));
+            courseRepository.save(new Course("Biologia",3,"La_materia"));
+            courseRepository.save(new Course("Biologia",3,"Composicion_y_organizacion_de_los_seres_vivos"));
+            courseRepository.save(new Course("Biologia",3,"Vida_en_la_celula"));
+            courseRepository.save(new Course("Biologia",3,"Salud_y_fisiologia_humana"));
+            courseRepository.save(new Course("Biologia",3,"Mecanismo_de_regulacion"));
+            courseRepository.save(new Course("Biologia",3,"Funcion_de_reproduccion"));
+            courseRepository.save(new Course("Biologia",3,"Genetica"));
+            courseRepository.save(new Course("Biologia",3,"Origen_y_evolucion_de_la_vida"));
+            courseRepository.save(new Course("Biologia",3,"Ecologia_y_evolucion"));
+
+            courseRepository.save(new Course("Biologia",4,"La_quimica_de_la_vida"));
+            courseRepository.save(new Course("Biologia",4,"Celulas"));
+            courseRepository.save(new Course("Biologia",4,"Genetica"));
+            courseRepository.save(new Course("Biologia",4   ,"Salud_y_fisiologia_humana"));
+
+            courseRepository.save(new Course("Biologia",5,"Salud"));
+            courseRepository.save(new Course("Biologia",5,"Fisiologia_humana"));
+            courseRepository.save(new Course("Biologia",5,"Ecologia"));
+            courseRepository.save(new Course("Biologia",5,"Evolucion"));
+            courseRepository.save(new Course("Biologia",5,"Nutricion_humana"));
+            courseRepository.save(new Course("Biologia",5,"Conservacion"));
+
         };
     }
 }
