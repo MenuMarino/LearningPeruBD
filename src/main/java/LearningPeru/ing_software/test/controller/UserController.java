@@ -41,43 +41,36 @@ public class UserController {
     @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
     List<Material> addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
-        try {
-            User user = userService.findbyId(userid);
-            List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
-            Material material = materialService.find_by_id(materialid);
-            usersFavouriteMaterials.add(material);
-            user.setFavouriteMaterials(usersFavouriteMaterials);
-            user =userService.save(user);
-            return user.getFavouriteMaterials();
-        }
-        catch (Exception e){
-            return null;
-        }
+
+        User user = userService.findbyId(userid);
+        List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
+        Material material = materialService.find_by_id(materialid);
+        usersFavouriteMaterials.add(material);
+        user.setFavouriteMaterials(usersFavouriteMaterials);
+        user =userService.save(user);
+        return user.getFavouriteMaterials();
 
     }
 
     @DeleteMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
     List<Material> deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
-        try {
-            User user = userService.findbyId(userid);
-            List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
-            int index=0;
-            for (Material material:usersFavouriteMaterials){
-                if (material.getId().equals(materialid)){
-                    usersFavouriteMaterials.remove(index);
-                    break;
-                }else{
-                    index++;
-                }
+
+        User user = userService.findbyId(userid);
+        List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
+        int index=0;
+        for (Material material:usersFavouriteMaterials){
+            if (material.getId().equals(materialid)){
+                usersFavouriteMaterials.remove(index);
+                break;
+            }else{
+                index++;
             }
-            user.setFavouriteMaterials(usersFavouriteMaterials);
-            user = userService.save(user);
-            return user.getFavouriteMaterials();
         }
-        catch (Exception e){
-            return null;
-        }
+        user.setFavouriteMaterials(usersFavouriteMaterials);
+        user = userService.save(user);
+        return user.getFavouriteMaterials();
+
 
     }
 
