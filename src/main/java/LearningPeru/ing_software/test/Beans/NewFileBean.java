@@ -12,8 +12,6 @@ public class NewFileBean {
 
     Type_of_file type_of_file;
 
-    String description;
-
     public Long getMaterialId() {
         return materialId;
     }
@@ -46,11 +44,5 @@ public class NewFileBean {
         this.type_of_file = type_of_file;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
