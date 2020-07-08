@@ -1,6 +1,7 @@
-package learningPeru.ing_software.test.service;
+package learning_peru.ing_software.test.service;
 
-import learningPeru.ing_software.test.Entity.Rating;
+
+import learning_peru.ing_software.test.entity.Rating;
 
 public interface RatingService {
 

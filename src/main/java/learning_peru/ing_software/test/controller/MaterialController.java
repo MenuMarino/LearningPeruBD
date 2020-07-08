@@ -94,8 +94,7 @@ public class MaterialController {
     @GetMapping("/id/{id}")
     @ResponseBody
     public Material GetById(@PathVariable("id") Long id){
-        Material material=materialService.find_by_id(id);
-        return material;
+        return materialService.findById(id);
     }
 
 

@@ -1,9 +1,9 @@
-package learningPeru.ing_software.test.repositories;
+package learning_peru.ing_software.test.repositories;
 
 
-import learningPeru.ing_software.test.Entity.Material;
-import learningPeru.ing_software.test.Entity.Rating;
-import learningPeru.ing_software.test.Entity.User;
+import learning_peru.ing_software.test.entity.Material;
+import learning_peru.ing_software.test.entity.Rating;
+import learning_peru.ing_software.test.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RatingRepository extends CrudRepository<Rating,Long> {

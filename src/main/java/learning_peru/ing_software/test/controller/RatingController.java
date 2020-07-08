@@ -1,13 +1,12 @@
-package learningPeru.ing_software.test.controller;
+package learning_peru.ing_software.test.controller;
 
-import learningPeru.ing_software.test.Beans.NewMaterialBean;
-import learningPeru.ing_software.test.Beans.NewRatingBean;
-import learningPeru.ing_software.test.Entity.Material;
-import learningPeru.ing_software.test.Entity.Rating;
-import learningPeru.ing_software.test.Entity.User;
-import learningPeru.ing_software.test.service.MaterialService;
-import learningPeru.ing_software.test.service.RatingService;
-import learningPeru.ing_software.test.service.UserService;
+import learning_peru.ing_software.test.beans.NewRatingBean;
+import learning_peru.ing_software.test.entity.Material;
+import learning_peru.ing_software.test.entity.Rating;
+import learning_peru.ing_software.test.entity.User;
+import learning_peru.ing_software.test.service.MaterialService;
+import learning_peru.ing_software.test.service.RatingService;
+import learning_peru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +35,7 @@ public class RatingController {
             User user = userService.findbyId(newRatingBean.getUserId());
             List<Rating> usersRatingList= user.getRatings();
 
-            Material material = materialService.find_by_id(newRatingBean.getMaterialId());
+            Material material = materialService.findById(newRatingBean.getMaterialId());
             material.setLearningPoints(material.getLearningPoints()+newRatingBean.getLearningPoints());
             material.setRatingPeople(material.getRatingPeople()+1);
             List<Rating> ratingList= material.getRatings();
@@ -64,7 +63,7 @@ public class RatingController {
             rating.setCreated(new Date());
             ratingService.save(rating);
 
-            Material material= materialService.find_by_id(newRatingBean.getMaterialId());
+            Material material= materialService.findById(newRatingBean.getMaterialId());
             //before
             Integer learningPoints=material.getLearningPoints()-rating.getLearningPoints();
             //after

@@ -1,4 +1,5 @@
-package learningPeru.ing_software.test.Beans;
+package learning_peru.ing_software.test.beans;
+
 
 public class NewRatingBean {
 
