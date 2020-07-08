@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DefaultUserService implements UserService {
@@ -59,6 +60,7 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User findbyId(Long id) {
-        return userRepository.findById(id).get();
+        Optional<User> user=userRepository.findById(id);
+        return user.orElseGet(User::new);
     }
 }

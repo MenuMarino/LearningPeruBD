@@ -4,11 +4,8 @@ import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.service.MaterialService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,7 +21,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody
-    User update_user(@RequestBody User user){
+    public User update_user(@RequestBody User user){
         User temp = userService.findbyId(user.getId());
         if( user.getUsername()!=null ){
             temp.setUsername(user.getUsername());
@@ -40,7 +37,7 @@ public class UserController {
 
     @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    User addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    public User addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
@@ -53,7 +50,7 @@ public class UserController {
 
     @DeleteMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    User deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    public User deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();

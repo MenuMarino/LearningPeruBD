@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.print.attribute.standard.Media;
 import java.io.*;
 
 @Service
@@ -16,12 +15,12 @@ public class DefaultUploadsService implements UploadsService {
 
     @Override
     public Boolean save(String path, MultipartFile file) throws IOException {
-        System.out.println(path+file.getOriginalFilename());
         File convertFile = new File(path+file.getOriginalFilename());
         convertFile.createNewFile();
         FileOutputStream fout = new FileOutputStream(convertFile);
         fout.write(file.getBytes());
         fout.close();
+
         return true;
     }
 

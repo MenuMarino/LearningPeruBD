@@ -36,17 +36,14 @@ public class Material {
     @Column
     private Integer learningPoints;
 
-    //@JsonBackReference
     @ManyToOne
     @JsonIgnoreProperties("materiales")
     private Course course;
 
-    //@JsonManagedReference
     @JsonIgnoreProperties("material_from")
     @OneToMany(mappedBy = "material_from",cascade= CascadeType.ALL)
     private List<File> files;
 
-    //@JsonBackReference
     @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
     @ManyToOne
     private User who_posted;
@@ -60,7 +57,6 @@ public class Material {
     @PrimaryKeyJoinColumn
     private User who_aproved;
 
-    //@JsonManagedReference
     @JsonIgnoreProperties("material")
     @OneToMany(
             mappedBy = "material",

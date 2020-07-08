@@ -2,13 +2,11 @@ package LearningPeru.ing_software.test.controller;
 
 import LearningPeru.ing_software.test.Entity.User;
 import LearningPeru.ing_software.test.service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +19,9 @@ public class AuthController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseBody
-    HttpEntity<User> register(@RequestBody User user){
+    public HttpEntity<User> register(@RequestBody User user){
 
         User tmp = userService.findbyusername(user);
         HttpHeaders headers= new HttpHeaders();
@@ -43,13 +41,13 @@ public class AuthController {
 
     @GetMapping(value="/all")
     @ResponseBody
-    List<User> getall(){
+    public List<User> getall(){
         return userService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/login")
+    @PostMapping( value="/login")
     @ResponseBody
-    User login(@RequestBody User user) {
+    public User login(@RequestBody User user) {
         User temp= userService.findbyCredentials(user);
         if (temp!=null) {
             temp.setPassword(null);

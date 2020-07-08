@@ -1,6 +1,5 @@
 package LearningPeru.ing_software.test.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -28,7 +27,6 @@ public class File {
     private String link;
 
 
-    //@JsonBackReference
     @ManyToOne
     @JsonIgnoreProperties("files")
     private Material material_from;

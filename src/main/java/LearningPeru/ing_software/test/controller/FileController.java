@@ -25,13 +25,13 @@ public class FileController {
 
     @GetMapping
     @ResponseBody
-    List<File> getFilesFromMaterialId(@RequestParam("id") Long id){
+    public List<File> getFilesFromMaterialId(@RequestParam("id") Long id){
         return fileService.get_by_material(id);
     }
 
     @PostMapping
     @ResponseBody
-    Boolean CreateFile(@RequestBody NewFileBean newFileBean){
+    public Boolean CreateFile(@RequestBody NewFileBean newFileBean){
         Material material = materialService.find_by_id(newFileBean.getMaterialId());
         List<File> files_list= material.getFiles();
 

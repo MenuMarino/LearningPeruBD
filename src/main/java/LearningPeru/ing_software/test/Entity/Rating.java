@@ -1,6 +1,5 @@
 package LearningPeru.ing_software.test.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -21,12 +20,10 @@ public class Rating {
     @CreatedDate
     private Date created;
 
-    //@JsonBackReference
     @JsonIgnoreProperties("ratings")
     @ManyToOne
     private Material material;
 
-    //@JsonBackReference
     @JsonIgnoreProperties("ratings")
     @ManyToOne
     private User user;
@@ -61,14 +58,6 @@ public class Rating {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public Material getMaterials() {
-        return material;
-    }
-
-    public void setMaterials(Material materials) {
-        this.material = materials;
     }
 
     public User getUser() {

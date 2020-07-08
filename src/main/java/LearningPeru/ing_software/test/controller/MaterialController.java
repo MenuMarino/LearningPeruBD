@@ -11,7 +11,6 @@ import LearningPeru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class MaterialController {
 
     @PostMapping(value="/create")
     @ResponseBody
-    User save(@RequestBody NewMaterialBean materialBean){
+    public User save(@RequestBody NewMaterialBean materialBean){
         User who_posted =userService.findbyId(materialBean.getId());
         List<Material> user_material_list=who_posted.getMyMaterials();
         Course course= new Course();
@@ -72,7 +71,7 @@ public class MaterialController {
 
     @GetMapping(value = "/search")
     @ResponseBody
-    List<Material> Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme,@RequestParam("page") Integer page) {
+    public List<Material> Search(@RequestParam("name") String name,@RequestParam("grade") Integer grade,@RequestParam("theme") String theme,@RequestParam("page") Integer page) {
         Course course = new Course();
         course.setGrade(grade);
         course.setTheme(theme);
@@ -82,21 +81,14 @@ public class MaterialController {
         return materialService.getAllByCourse(course,page);
     }
 
-    /*@PostMapping("/curate/{id}")
-    @ResponseBody
-    Boolean SendToCurator(@PathVariable("id") Long id){
-        Material material=materialService.find_by_id(id);
-        material.setEstado(1);
-        materialService.save(material);
-        return true;
-    }*/
+
     @PostMapping("/status/{id}/{status}")
     @ResponseBody
-    List<Material> ChangeStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status){
+    public User ChangeStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status){
         Material material=materialService.find_by_id(id);
         material.setStatus(status);
         materialService.save(material);
-        return material.getWho_posted().getMyMaterials();
+        return material.getWho_posted();
     }
 
 }
