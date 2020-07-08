@@ -38,7 +38,6 @@ public class FileController {
         List<File> files_list= material.getFiles();
 
         File file = new File();
-        file.setDescripcion(newFileBean.getDescription());
         file.setType(newFileBean.getType_of_file());
         file.setName(newFileBean.getName());
         file.setLink(newFileBean.getLink());

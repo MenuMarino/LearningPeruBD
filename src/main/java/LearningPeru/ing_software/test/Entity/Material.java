@@ -52,7 +52,7 @@ public class Material {
     private User who_posted;
 
     @Column
-    private Integer estado; //0: creado //1 enviado a curar (espera) 2 curado 3 eliminado
+    private Integer status; //0: creado //1 enviado a curar (espera) 2 curado 3 eliminado
 
 
     @OneToOne
@@ -93,12 +93,12 @@ public class Material {
         this.description = description;
     }
 
-    public Integer getEstado() {
-        return estado;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setEstado(Integer estado) {
-        this.estado = estado;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public User getWho_aproved() {

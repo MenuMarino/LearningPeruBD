@@ -90,11 +90,11 @@ public class MaterialController {
         materialService.save(material);
         return true;
     }*/
-    @PostMapping("/curate/{id}")
+    @PostMapping("/status/{id}/{status}")
     @ResponseBody
-    Boolean SendToCurator(@PathVariable("id") Long id){
+    Boolean SendToCurator(@PathVariable("id") Long id, @PathVariable("status") Integer status){
         Material material=materialService.find_by_id(id);
-        material.setEstado(1);
+        material.setStatus(status);
         materialService.save(material);
         return true;
     }

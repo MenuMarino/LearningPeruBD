@@ -160,14 +160,12 @@ public class TestController {
         file.setDate(date);
         file.setLink("Guia_Laboratorio_11_2.pdf");
         file.setType(Type_of_file.PDF);
-        file.setDescripcion("Este fue nuestro trabajo para el laboratorio 11.2");
 
         File file2 = new File();
         file2.setName("link de youtube");
         file2.setDate(date);
         file2.setLink("https://www.youtube.com/embed/t3DpuQrBivU");
         file2.setType(Type_of_file.YOUTUBE_LINK);
-        file2.setDescripcion("Este fue un link que nos plageamos");
 
 
         File file3 = new File();
@@ -175,7 +173,6 @@ public class TestController {
         file3.setDate(date);
         file3.setLink("assets/prueba.mp4");
         file3.setType(Type_of_file.VIDEO);
-        file3.setDescripcion("Esta es nuestro test de video");
 
         file.setMaterial_from(material);
         file2.setMaterial_from(material);

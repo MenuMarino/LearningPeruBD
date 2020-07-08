@@ -27,8 +27,6 @@ public class File {
     @Column
     private String link;
 
-    @Column
-    private String descripcion;
 
     //@JsonBackReference
     @ManyToOne
@@ -43,13 +41,6 @@ public class File {
         this.type = type;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
     public Material getMaterial_from() {
         return material_from;
