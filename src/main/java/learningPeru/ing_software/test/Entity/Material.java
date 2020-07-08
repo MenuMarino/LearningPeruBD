@@ -60,8 +60,7 @@ public class Material {
     @JsonIgnoreProperties("material")
     @OneToMany(
             mappedBy = "material",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
     )
     private List<Rating> ratings;
 

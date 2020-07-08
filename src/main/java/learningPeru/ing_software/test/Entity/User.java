@@ -64,11 +64,24 @@ public class User {
 
     @OneToMany(
             mappedBy = "user"
-            ,cascade = CascadeType.ALL,
-            orphanRemoval = true
+            ,cascade = CascadeType.ALL
     )
     private List<Rating> ratings;
 
+    @Column
+    private Boolean enabled;
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public String getInstitucion() { return Institucion;  }
 
@@ -155,9 +168,6 @@ public class User {
         this.password = password;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
 
     public Integer getGrade() {
         return grade;

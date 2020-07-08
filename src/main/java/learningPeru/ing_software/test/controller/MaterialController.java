@@ -91,4 +91,12 @@ public class MaterialController {
         return material.getWho_posted();
     }
 
+    @GetMapping("/id/{id}")
+    @ResponseBody
+    public Material GetById(@PathVariable("id") Long id){
+        Material material=materialService.find_by_id(id);
+        return material;
+    }
+
+
 }

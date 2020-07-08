@@ -28,10 +28,9 @@ public class Course {
     @JsonIgnoreProperties("course")
     @OneToMany(
             mappedBy = "course",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
     )
-    @OrderBy("Learning_Points DESC")
+    @OrderBy("learningPoints DESC")
     private List<Material> materiales;
 
     public Long getId() {

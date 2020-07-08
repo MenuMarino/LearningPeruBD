@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface MaterialRepository extends PagingAndSortingRepository<Material,Long> {
 
-    @Query(value = "SELECT max(Id) FROM material",nativeQuery = true)
+    @Query(value = "SELECT max(id) FROM material",nativeQuery = true)
     Long maxID();
 
     List<Material> findAllByCourseAndStatus(Course course,Integer status, Pageable pageable);
