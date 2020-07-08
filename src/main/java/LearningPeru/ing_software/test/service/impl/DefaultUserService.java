@@ -18,7 +18,7 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User save(User user) {
-        String path="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+        String path="C:\\Users\\thefo\\Desktop\\LearningPeru\\LearningPeruBD\\src\\main\\java\\LearningPeru\\ing_software\\test\\userFiles";
         User temp=userRepository.save(user);
         try {
             File file = new File(path + temp.getId());

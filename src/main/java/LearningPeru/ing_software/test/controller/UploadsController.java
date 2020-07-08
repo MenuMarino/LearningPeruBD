@@ -14,7 +14,7 @@ import java.io.IOException;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/uploads")
 public class UploadsController {
-    private String src="/home/cesar21456/Desktop/git/LearningPeruBD/src/main/java/LearningPeru/ing_software/test/userFiles/";
+    private String src="C:\\Users\\thefo\\Desktop\\LearningPeru\\LearningPeruBD\\src\\main\\java\\LearningPeru\\ing_software\\test\\userFiles";
 
     @Autowired
     UploadsService uploadsService;
@@ -22,7 +22,7 @@ public class UploadsController {
     @PostMapping(value="/uploads/{id}/{dir}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
-        String path=id+"/"+dir+"/";
+        String path=src + id+"/"+dir+"/";
         uploadsService.save(path,file);
         //return uploadsService.download("application/png",path+file.getOriginalFilename());
         HttpHeaders headers= new HttpHeaders();
@@ -30,14 +30,13 @@ public class UploadsController {
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token");
         headers.add("Access-Control-Allow-Credentials", "true");
         return new ResponseEntity<>(true,headers, HttpStatus.OK);
-
     }
 
     @GetMapping(value="/download/{id}/{dir}/{file}")
     @ResponseBody
     HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
         String format="";
-        String path=id+"/"+dir+"/"+file;
+        String path=id+"\\"+dir+"\\"+file;
         System.out.println(path);
         if (path.endsWith(".mp4")){
             format = "video/mp4";
@@ -48,6 +47,4 @@ public class UploadsController {
         }
         return uploadsService.download(format, src+path);
     }
-
-
 }

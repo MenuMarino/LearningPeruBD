@@ -16,12 +16,18 @@ public class DefaultUploadsService implements UploadsService {
 
     @Override
     public Boolean save(String path, MultipartFile file) throws IOException {
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         System.out.println(path+file.getOriginalFilename());
         File convertFile = new File(path+file.getOriginalFilename());
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         convertFile.createNewFile();
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         FileOutputStream fout = new FileOutputStream(convertFile);
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         fout.write(file.getBytes());
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         fout.close();
+        System.out.println("\n\n\nJJJJJJJJJJ\n\n\n");
         return true;
     }
 
