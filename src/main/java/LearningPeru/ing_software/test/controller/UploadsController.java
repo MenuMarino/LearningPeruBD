@@ -1,7 +1,9 @@
 package LearningPeru.ing_software.test.controller;
 
+import LearningPeru.ing_software.test.TestApplication;
 import LearningPeru.ing_software.test.service.UploadsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
