@@ -40,21 +40,20 @@ public class UserController {
 
     @PostMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    List<Material> addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    User addToFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
         Material material = materialService.find_by_id(materialid);
         usersFavouriteMaterials.add(material);
         user.setFavouriteMaterials(usersFavouriteMaterials);
-        user =userService.save(user);
-        return user.getFavouriteMaterials();
+        return userService.save(user);
 
     }
 
     @DeleteMapping(value = "/favourite/{userid}/{materialid}")
     @ResponseBody
-    List<Material> deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
+    User deleteFromFavourite(@PathVariable("userid") Long userid, @PathVariable("materialid") Long materialid){
 
         User user = userService.findbyId(userid);
         List<Material> usersFavouriteMaterials = user.getFavouriteMaterials();
@@ -68,8 +67,7 @@ public class UserController {
             }
         }
         user.setFavouriteMaterials(usersFavouriteMaterials);
-        user = userService.save(user);
-        return user.getFavouriteMaterials();
+        return userService.save(user);
 
 
     }
