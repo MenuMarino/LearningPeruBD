@@ -12,7 +12,7 @@ import java.util.Date;
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     private String name;
@@ -60,11 +60,11 @@ public class File {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Date getDate() {

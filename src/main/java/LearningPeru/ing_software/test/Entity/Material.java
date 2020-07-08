@@ -12,7 +12,7 @@ import java.util.List;
 public class Material {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     private Integer visits;
@@ -118,11 +118,11 @@ public class Material {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public Integer getVisits() {

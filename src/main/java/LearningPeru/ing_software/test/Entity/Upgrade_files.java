@@ -13,7 +13,7 @@ import java.util.Date;
 public class Upgrade_files {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     @CreatedDate
@@ -26,4 +26,36 @@ public class Upgrade_files {
     @JsonIgnoreProperties("files_sent")
     @ManyToOne
     private Upgrades upgrade;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getContentLink() {
+        return contentLink;
+    }
+
+    public void setContentLink(String contentLink) {
+        this.contentLink = contentLink;
+    }
+
+    public Upgrades getUpgrade() {
+        return upgrade;
+    }
+
+    public void setUpgrade(Upgrades upgrade) {
+        this.upgrade = upgrade;
+    }
 }

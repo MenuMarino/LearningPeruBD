@@ -12,7 +12,7 @@ import java.util.Date;
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     private Integer learningPoints;
@@ -32,11 +32,19 @@ public class Rating {
     private User user;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
     }
 
     public Integer getLearningPoints() {

@@ -14,7 +14,7 @@ import java.util.List;
 public class Upgrades {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
 
     @OneToOne
@@ -70,11 +70,11 @@ public class Upgrades {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public User getUser() {

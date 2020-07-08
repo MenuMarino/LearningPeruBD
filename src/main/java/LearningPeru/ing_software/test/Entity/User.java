@@ -18,7 +18,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column
     private String name;    //
@@ -59,6 +59,7 @@ public class User {
     //@JsonManagedReference
     @JsonIgnoreProperties("who_posted")
     @OneToMany(mappedBy = "who_posted",cascade= CascadeType.ALL)
+    @OrderBy("id desc")
     private List<Material> myMaterials;
 
     @OneToMany
@@ -128,11 +129,11 @@ public class User {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
