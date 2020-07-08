@@ -21,8 +21,7 @@ public class UploadsController {
 
     @PostMapping(value="/uploads/{id}/{dir}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
-
-    HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
+    public HttpEntity<Boolean> upload(@RequestParam("file") MultipartFile file,@PathVariable("id") String id, @PathVariable("dir") String dir) throws IOException {
         String path=src + id+"/"+dir+"/";
         uploadsService.save(path,file);
         HttpHeaders headers= new HttpHeaders();
@@ -37,7 +36,6 @@ public class UploadsController {
     public HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
         String format="";
         String path=id+"\\"+dir+"\\"+file;
-        System.out.println(path);
         if (path.endsWith(".mp4")){
             format = "video/mp4";
         }else{

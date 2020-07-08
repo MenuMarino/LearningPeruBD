@@ -1,8 +1,6 @@
 package LearningPeru.ing_software.test.service;
 
 import LearningPeru.ing_software.test.Entity.Course;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -19,5 +17,4 @@ public interface CourseService {
 
     List<String> getAllThemes(Course course);
 
-    //List<Course> SpecificSearch2(Course course);
 }

@@ -1,14 +1,11 @@
 package LearningPeru.ing_software.test.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.data.annotation.CreatedBy;
+
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.security.PrivateKey;
-import java.security.PublicKey;
+
 import java.util.Date;
 import java.util.List;
 

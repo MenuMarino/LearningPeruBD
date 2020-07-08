@@ -1,22 +1,14 @@
 package LearningPeru.ing_software.test.controller;
 
 import LearningPeru.ing_software.test.Entity.*;
-import LearningPeru.ing_software.test.repositories.MaterialRepository;
 import LearningPeru.ing_software.test.service.CourseService;
 import LearningPeru.ing_software.test.service.MaterialService;
 import LearningPeru.ing_software.test.service.UploadsService;
 import LearningPeru.ing_software.test.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +32,6 @@ public class TestController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public List<User> tester(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         User user= new User();
         user.setUsername("jbellido");
         user.setPassword(DigestUtils.sha256Hex("jbellido"));
@@ -49,7 +40,6 @@ public class TestController {
         user.setType(Type_of_user.ADMIN);
         user.setSex(true);
         user.setCreated(new Date());
-        System.out.println(user.getUsername());
         userService.save(user);
 
         User user2=new User();

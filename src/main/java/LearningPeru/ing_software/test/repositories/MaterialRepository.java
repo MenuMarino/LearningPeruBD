@@ -4,7 +4,6 @@ import LearningPeru.ing_software.test.Entity.Course;
 import LearningPeru.ing_software.test.Entity.Material;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
