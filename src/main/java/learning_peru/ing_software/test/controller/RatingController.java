@@ -40,8 +40,6 @@ public class RatingController {
             material.setLearningPoints(newLearningPoints);
             Integer newRatingPeople=material.getRatingPeople()+1;
             material.setRatingPeople(newRatingPeople);
-            System.out.println(newLearningPoints);
-            System.out.println(newRatingPeople);
 
 
             List<Rating> ratingList= material.getRatings();
@@ -66,14 +64,15 @@ public class RatingController {
             return materialService.save(material);
 
         }else{
+            Material material= materialService.findById(newRatingBean.getMaterialId());
+            //before
+            Integer learningPoints=material.getLearningPoints()-rating.getLearningPoints();
+
             rating.setLearningPoints(newRatingBean.getLearningPoints());
             rating.setCreated(new Date());
             ratingService.save(rating);
 
-            Material material= materialService.findById(newRatingBean.getMaterialId());
-            //before
-            Integer learningPoints=material.getLearningPoints()-rating.getLearningPoints();
-            //after
+            //after 
             learningPoints+=newRatingBean.getLearningPoints();
             material.setLearningPoints(learningPoints);
             return materialService.save(material);
