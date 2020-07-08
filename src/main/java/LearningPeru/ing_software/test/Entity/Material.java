@@ -47,7 +47,7 @@ public class Material {
     private List<File> files;
 
     //@JsonBackReference
-    @JsonIgnoreProperties("myMaterials")
+    @JsonIgnoreProperties({"myMaterials","favouriteMaterials"})
     @ManyToOne(cascade = CascadeType.ALL)
     private User who_posted;
 
