@@ -24,7 +24,7 @@ public class Rating {
     @ManyToOne
     private Material material;
 
-    @JsonIgnoreProperties("ratings")
+    @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
     @ManyToOne
     private User user;
 
