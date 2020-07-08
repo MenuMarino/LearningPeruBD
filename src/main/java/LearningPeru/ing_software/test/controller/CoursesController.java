@@ -28,7 +28,6 @@ public class CoursesController {
 
     @PostMapping
     @ResponseBody
-<<<<<<< HEAD
     List<Course> initCourses(){
         String matematica = "Matematica";
         String quimica = "Quimica";
@@ -36,9 +35,6 @@ public class CoursesController {
         String lenguaje = "lenguaje";
         String biologia = "Biologia";
 
-=======
-    public List<Course> initCourses(){
->>>>>>> 13ac357b782bf2692ea8d6deca954eff13f1d93f
         //TODO iniciar
         //Grado 1
         Course curso1=new Course();
