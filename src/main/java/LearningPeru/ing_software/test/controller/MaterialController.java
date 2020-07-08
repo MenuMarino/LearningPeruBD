@@ -84,11 +84,11 @@ public class MaterialController {
 
     @PostMapping("/status/{id}/{status}")
     @ResponseBody
-    public List<Material> ChangeStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status){
+    public User ChangeStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status){
         Material material=materialService.find_by_id(id);
         material.setStatus(status);
         materialService.save(material);
-        return material.getWho_posted().getMyMaterials();
+        return material.getWho_posted();
     }
 
 }
