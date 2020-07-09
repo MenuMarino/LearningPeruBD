@@ -46,4 +46,9 @@ public class DefaultMaterialService implements MaterialService {
     public List<Material> getAllByCourse(Course course,Integer page) {
         return materialRepository.findAllByCourseAndStatus(course,2, PageRequest.of(page,10,Sort.by(Sort.Order.desc("LearningPoints"),Sort.Order.asc("ratingPeople"))));
     }
+
+    @Override
+    public List<Material> getNotCuratedMaterials(Integer page) {
+        return materialRepository.findAllByStatus(1,PageRequest.of(page,10,Sort.by(Sort.Order.asc("date"))));
+    }
 }

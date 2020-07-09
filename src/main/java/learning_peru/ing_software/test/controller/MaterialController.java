@@ -99,5 +99,11 @@ public class MaterialController {
         return materialService.findById(id);
     }
 
+    @GetMapping("/needcurate/{page}")
+    @ResponseBody
+    public List<Material> getNotCuratedMaterials(@PathVariable("page") Integer page){
+        return materialService.getNotCuratedMaterials(page);
+    }
+
 
 }

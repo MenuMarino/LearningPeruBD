@@ -15,4 +15,9 @@ public interface MaterialService {
     Material findById(Long Id );
 
     List<Material> getAllByCourse(Course course,Integer page);
+
+    List<Material> getNotCuratedMaterials(Integer page);
+
 }
+
+
