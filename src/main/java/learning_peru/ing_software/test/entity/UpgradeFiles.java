@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity(name = "Upgrade_files")
 @Table(name = "upgrade_files")
-public class upgradeFiles {
+public class UpgradeFiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

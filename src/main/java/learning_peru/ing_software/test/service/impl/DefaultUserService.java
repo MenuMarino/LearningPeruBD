@@ -52,8 +52,7 @@ public class DefaultUserService implements UserService {
     public User findbyCredentials(User user) {
         User tmp = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (tmp == null){
-            User vacio = new User();
-            return vacio;
+            return new User();
         } else {
             return tmp;
         }

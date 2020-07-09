@@ -33,7 +33,7 @@ public class Upgrades {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<upgradeFiles> filesSent;
+    private List<UpgradeFiles> filesSent;
 
     @Column
     @CreatedDate
@@ -44,8 +44,6 @@ public class Upgrades {
 
     @Column
     private Boolean aproved;
-
-
 
     @OneToOne
     @PrimaryKeyJoinColumn
@@ -59,11 +57,11 @@ public class Upgrades {
         this.description = description;
     }
 
-    public List<upgradeFiles> getFilesSent() {
+    public List<UpgradeFiles> getFilesSent() {
         return filesSent;
     }
 
-    public void setFilesSent(List<upgradeFiles> filesSent) {
+    public void setFilesSent(List<UpgradeFiles> filesSent) {
         this.filesSent = filesSent;
     }
 
@@ -119,7 +117,7 @@ public class Upgrades {
         return whoApproved;
     }
 
-    public void setWhoApproved(User who_aproved) {
-        this.whoApproved = who_aproved;
+    public void setWhoApproved(User whoApproved) {
+        this.whoApproved = whoApproved;
     }
 }
