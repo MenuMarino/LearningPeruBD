@@ -36,11 +36,8 @@ public class DefaultUploadsService implements UploadsService {
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
         headers.add("Pragma", "no-cache");
 
-        ResponseEntity<Object>
-                responseEntity = ResponseEntity.ok().headers(headers).contentLength(
-                file.length()).body(resource);
-
-        return responseEntity;
+        return ResponseEntity.ok().headers(headers).contentLength(
+        file.length()).body(resource);
     }
 
 

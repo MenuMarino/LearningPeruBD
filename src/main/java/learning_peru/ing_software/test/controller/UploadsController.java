@@ -3,6 +3,7 @@ package learning_peru.ing_software.test.controller;
 import learning_peru.ing_software.test.beans.ZipFilesBean;
 import learning_peru.ing_software.test.service.UploadsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ import java.util.zip.ZipOutputStream;
 @RequestMapping(value = "/uploads")
 public class UploadsController {
     private String src="/home/lusho/Documents/Eduardo/5tociclo/SOFTWARE/proyecto_final/LearningPeruBD/src/main/java/learning_peru/ing_software/test/userFiles/";
-
+    private String simplesrc="/home/lusho/Documents/Eduardo/5tociclo/SOFTWARE/proyecto_final/LearningPeruBD/";
     @Autowired
     UploadsService uploadsService;
 
@@ -55,7 +56,7 @@ public class UploadsController {
 
     @PostMapping(value="/download/{id}", produces="application/zip")
     @ResponseBody
-    public Boolean download(@PathVariable("id") String id, @RequestBody ZipFilesBean zipFilesBean) throws IOException {
+    public ResponseEntity<Object> download(@PathVariable("id") String id, @RequestBody ZipFilesBean zipFilesBean) throws IOException {
         FileOutputStream fos = new FileOutputStream("material.zip");
         ZipOutputStream zipOut = new ZipOutputStream(fos);
         for (String srcFile : zipFilesBean.getList_of_files()) {
@@ -73,7 +74,15 @@ public class UploadsController {
         }
         zipOut.close();
         fos.close();
-        return true;
+        File file = new File(simplesrc+"material.zip");
+        InputStreamResource resource= new InputStreamResource(new FileInputStream(file));
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/zip");
+        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Pragma", "no-cache");
+        return ResponseEntity.ok().headers(headers).contentLength(file.length()
+                ).body(resource);
     }
 
 }
