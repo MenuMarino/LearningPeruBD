@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+
+
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/uploads")
@@ -54,18 +56,14 @@ public class UploadsController {
     @PostMapping(value="/download/{id}", produces="application/zip")
     @ResponseBody
     public Boolean download(@PathVariable("id") String id, @RequestBody ZipFilesBean zipFilesBean) throws IOException {
-        System.out.println("Hola");
         FileOutputStream fos = new FileOutputStream("material.zip");
-        System.out.println("Hola nuevo");
         ZipOutputStream zipOut = new ZipOutputStream(fos);
-        System.out.println("Hola  linea 61 nuevo");
         for (String srcFile : zipFilesBean.getList_of_files()) {
             System.out.println(src+id+"/materiales/"+ srcFile);
             File fileToZip = new File(src+id+"/materiales/"+ srcFile);
             FileInputStream fis = new FileInputStream(fileToZip);
             ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
             zipOut.putNextEntry (zipEntry);
-
             byte[] bytes = new byte[15728640];
             int length;
             while((length = fis.read(bytes)) >= 0) {
@@ -79,3 +77,4 @@ public class UploadsController {
     }
 
 }
+
