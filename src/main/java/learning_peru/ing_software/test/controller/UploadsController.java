@@ -14,7 +14,7 @@ import java.io.IOException;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/uploads")
 public class UploadsController {
-    private String src="C:\\Users\\thefo\\Desktop\\LearningPeru\\LearningPeruBD\\src\\main\\java\\LearningPeru\\ing_software\\test\\userFiles";
+    private String src="/home/lusho/Documents/Eduardo/5tociclo/SOFTWARE/proyecto_final/LearningPeruBD/src/main/java/learning_peru/ing_software/test/userFiles/";
 
     @Autowired
     UploadsService uploadsService;
@@ -35,7 +35,7 @@ public class UploadsController {
     @ResponseBody
     public HttpEntity<Object> download(@PathVariable("id") String id,@PathVariable("dir") String dir,@PathVariable("file") String file) throws FileNotFoundException {
         String format="";
-        String path=id+"\\"+dir+"\\"+file;
+        String path=id+"/"+dir+"/"+file;
         if (path.endsWith(".mp4")){
             format = "video/mp4";
         }else{

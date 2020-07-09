@@ -19,14 +19,15 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User save(User user) {
-        String path="C:\\Users\\thefo\\Desktop\\LearningPeru\\LearningPeruBD\\src\\main\\java\\LearningPeru\\ing_software\\test\\userFiles";
+
+        String path="/home/lusho/Documents/Eduardo/5tociclo/SOFTWARE/proyecto_final/LearningPeruBD/src/main/java/learning_peru/ing_software/test/userFiles";
         user.setEnabled(true);
         User temp=userRepository.save(user);
         try {
-            File file = new File(path + temp.getId());
+            File file = new File(path +"/"+ temp.getId());
             file.mkdir();
-            File file2 = new File(path + temp.getId()+"/"+"materiales");
-            File file3 = new File(path + temp.getId()+"/"+"upgrade_files");
+            File file2 = new File(path +"/"+ temp.getId()+"/"+"materiales");
+            File file3 = new File(path +"/"+ temp.getId()+"/"+"upgrade_files");
             file2.mkdir();
             file3.mkdir();
         }catch (Exception e){
