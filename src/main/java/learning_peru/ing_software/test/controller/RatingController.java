@@ -29,7 +29,7 @@ public class RatingController {
 
     @PostMapping
     @ResponseBody
-    Material rate(@RequestBody NewRatingBean newRatingBean){
+    public Material rate(@RequestBody NewRatingBean newRatingBean){
         Rating rating =ratingService.getRatingByUserAndMaterial(newRatingBean.getUserId(),newRatingBean.getMaterialId());
         if (rating==null){
             User user = userService.findbyId(newRatingBean.getUserId());
@@ -82,7 +82,7 @@ public class RatingController {
 
     @GetMapping(value = "/searchrate/{userid}/{materialid}")
     @ResponseBody
-    Integer searchIfRated(@PathVariable("userid") Long userid,@PathVariable("materialid") Long materialid){
+    public Integer searchIfRated(@PathVariable("userid") Long userid,@PathVariable("materialid") Long materialid){
         Rating rating =ratingService.getRatingByUserAndMaterial(userid,materialid);
         if (rating==null){
             return null;

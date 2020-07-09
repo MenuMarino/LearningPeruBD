@@ -172,8 +172,7 @@ public class CoursesController {
         curso25.setTheme("ADN_5");
         courseService.save(curso25);
 
-        List<Course> aaa= courseService.getAll();
-        return aaa;
+        return courseService.getAll();
     }
 
 
