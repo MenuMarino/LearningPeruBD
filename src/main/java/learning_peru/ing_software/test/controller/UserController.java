@@ -69,6 +69,19 @@ public class UserController {
 
     }
 
+    @GetMapping(value = "/mymaterials/{userId}")
+    @ResponseBody
+    public List<Material> getMyMaterials(@PathVariable("userId") Long userId){
+        return userService.findbyId(userId).getMyMaterials();
+    }
+
+
+    @GetMapping(value = "/myfavmaterials/{userId}")
+    @ResponseBody
+    public List<Material> getMyFavouriteMaterials(@PathVariable("userId") Long userId){
+        return userService.findbyId(userId).getFavouriteMaterials();
+    }
+
 
 
 
