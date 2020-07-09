@@ -1,14 +1,18 @@
 package learning_peru.ing_software.test.controller;
 
+import learning_peru.ing_software.test.beans.ZipFilesBean;
 import learning_peru.ing_software.test.service.UploadsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
@@ -45,4 +49,33 @@ public class UploadsController {
         }
         return uploadsService.download(format, src+path);
     }
+
+
+    @PostMapping(value="/download/{id}", produces="application/zip")
+    @ResponseBody
+    public Boolean download(@PathVariable("id") String id, @RequestBody ZipFilesBean zipFilesBean) throws IOException {
+        System.out.println("Hola");
+        FileOutputStream fos = new FileOutputStream("material.zip");
+        System.out.println("Hola nuevo");
+        ZipOutputStream zipOut = new ZipOutputStream(fos);
+        System.out.println("Hola  linea 61 nuevo");
+        for (String srcFile : zipFilesBean.getList_of_files()) {
+            System.out.println(src+id+"/materiales/"+ srcFile);
+            File fileToZip = new File(src+id+"/materiales/"+ srcFile);
+            FileInputStream fis = new FileInputStream(fileToZip);
+            ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
+            zipOut.putNextEntry (zipEntry);
+
+            byte[] bytes = new byte[15728640];
+            int length;
+            while((length = fis.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
+            }
+            fis.close();
+        }
+        zipOut.close();
+        fos.close();
+        return true;
+    }
+
 }
