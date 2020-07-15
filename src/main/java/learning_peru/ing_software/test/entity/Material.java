@@ -54,7 +54,7 @@ public class Material {
 
     @OneToOne
     @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "whoApproved")
     private User whoApproved;
 
     @JsonIgnoreProperties("material")

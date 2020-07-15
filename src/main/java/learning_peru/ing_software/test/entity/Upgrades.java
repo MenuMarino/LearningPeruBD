@@ -46,7 +46,7 @@ public class Upgrades {
     private Boolean aproved;
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="whoApproved")
     private User whoApproved;
 
     public String getDescription() {
