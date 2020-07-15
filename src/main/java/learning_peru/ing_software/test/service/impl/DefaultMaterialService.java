@@ -51,4 +51,6 @@ public class DefaultMaterialService implements MaterialService {
     public List<Material> getNotCuratedMaterials(Integer page) {
         return materialRepository.findAllByStatus(1,PageRequest.of(page,10,Sort.by(Sort.Order.asc("date"))));
     }
+
+
 }

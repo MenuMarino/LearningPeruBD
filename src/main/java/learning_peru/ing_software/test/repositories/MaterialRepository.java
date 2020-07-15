@@ -16,4 +16,5 @@ public interface MaterialRepository extends PagingAndSortingRepository<Material,
     List<Material> findAllByCourseAndStatus(Course course,Integer status, Pageable pageable);
 
     List<Material> findAllByStatus(Integer status, Pageable pageable);
+
 }
