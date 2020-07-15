@@ -6,7 +6,9 @@ import learning_peru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.cert.TrustAnchor;
 import java.util.List;
+import java.util.logging.LogManager;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -76,6 +78,7 @@ public class UserController {
     }
 
 
+
     @GetMapping(value = "/myfavmaterials/{userId}")
     @ResponseBody
     public List<Material> getMyFavouriteMaterials(@PathVariable("userId") Long userId){
@@ -89,5 +92,16 @@ public class UserController {
     }
 
 
-
+    @GetMapping(value = "/isfavourite/{idU}/{idM}")
+    @ResponseBody
+    public Boolean isMyFavourite(@PathVariable("idU")Long idU, @PathVariable("idM")Long idM ){
+        User usuario = userService.findbyId(idU);
+        List<Material> favouriteMaterial = usuario.getFavouriteMaterials();
+        for (Material material1:favouriteMaterial){
+            if (material1.getId().equals(idM)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
