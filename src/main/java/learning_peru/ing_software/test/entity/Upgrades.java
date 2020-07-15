@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name="Upgrades")
-@Table(name="upgrades")
+@Table(name="upgrades",indexes = @Index(name="indexed_by",columnList = "user_id"))
 public class Upgrades {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Upgrades {
 
     @OneToOne
     @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="user")
     private User user;
 
     @Column
@@ -37,7 +37,7 @@ public class Upgrades {
 
     @Column
     @CreatedDate
-    private Date solicitation;
+    private Date solicitated;
 
     @Column
     private Date response;
@@ -89,12 +89,12 @@ public class Upgrades {
         this.upgradedTo = upgradedTo;
     }
 
-    public Date getSolicitation() {
-        return solicitation;
+    public Date getSolicitated() {
+        return solicitated;
     }
 
-    public void setSolicitation(Date solicitation) {
-        this.solicitation = solicitation;
+    public void setSolicitated(Date solicitated) {
+        this.solicitated = solicitated;
     }
 
     public Date getResponse() {

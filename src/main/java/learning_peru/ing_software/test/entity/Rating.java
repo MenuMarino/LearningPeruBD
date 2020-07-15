@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name="Rating")
-@Table(name="rating")
+@Table(name="rating",indexes = @Index(name="indexed_by",columnList = "material_id,user_id"))
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

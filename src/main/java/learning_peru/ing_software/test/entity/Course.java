@@ -6,24 +6,22 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name="Course")
-@Table(name="course")
+@Table(name="course",indexes = @Index(name="indexed_by",columnList = "name,grade"))
 public class Course {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name="grade")
     private Integer grade;
 
     @Column
     private String theme;
 
-    //@JsonManagedReference
 
     @JsonIgnoreProperties("course")
     @OneToMany(
