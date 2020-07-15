@@ -42,11 +42,6 @@ public class MaterialController {
         List<Material> materialList= course.getMateriales();
 
         Material material= new Material();
-        material.setStatus(0);
-        material.setRatingPeople(0);
-        material.setLearningPoints(0);
-        material.setDownloads(0);
-        material.setVisits(0);
         material.setDescription(materialBean.getDescription());
         material.setName(materialBean.getName());
         material=materialService.save(material);

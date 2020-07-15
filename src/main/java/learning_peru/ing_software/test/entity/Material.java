@@ -66,6 +66,11 @@ public class Material {
     @PrePersist
     protected void prePersist(){
         date=new Date();
+        setStatus(0);
+        setRatingPeople(0);
+        setLearningPoints(0);
+        setDownloads(0);
+        setVisits(0);
     }
 
     public String getName() {
