@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name="Material")
-@Table(name="material",indexes = @Index(name="indexed_by",columnList = "course_id,status"))
+@Table(name="material",indexes = @Index(name="index_material",columnList = "course_id,status"))
 public class Material {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

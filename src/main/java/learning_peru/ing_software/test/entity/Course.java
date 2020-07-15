@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name="Course")
-@Table(name="course",indexes = @Index(name="indexed_by",columnList = "name,grade"))
+@Table(name="course",indexes = @Index(name="index_course",columnList = "name,grade"))
 public class Course {
 
     @Id

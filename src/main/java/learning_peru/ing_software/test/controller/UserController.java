@@ -82,6 +82,11 @@ public class UserController {
         return userService.findbyId(userId).getFavouriteMaterials();
     }
 
+    @GetMapping(value ="/myType")
+    @ResponseBody
+    public String getMyType(@RequestParam("userId")Long userId){
+        return userService.findbyId(userId).getType().toString();
+    }
 
 
 

@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name="Upgrades")
-@Table(name="upgrades",indexes = @Index(name="indexed_by",columnList = "user_id"))
+@Table(name="upgrades",indexes = @Index(name="index_upgrades",columnList = "user_from"))
 public class Upgrades {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,22 +18,17 @@ public class Upgrades {
 
     @OneToOne
     @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
-    @JoinColumn(name="user")
+    @JoinColumn(name="user_from")
     private User user;
 
     @Column
-    private String description;
+    private String description;     //
 
     @Column
-    private Type_of_user upgradedTo;
+    private Type_of_user upgradedTo;       //
 
-    @JsonIgnoreProperties("upgrade")
-    @OneToMany(
-            mappedBy = "upgrade",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<UpgradeFiles> filesSent;
+    @Column
+    private String contentLink;             //
 
     @Column
     @CreatedDate
@@ -46,8 +41,9 @@ public class Upgrades {
     private Boolean aproved;
 
     @OneToOne
-    @JoinColumn(name="whoApproved")
+    @JoinColumn(name="who_approved")
     private User whoApproved;
+
 
     public String getDescription() {
         return description;
@@ -57,12 +53,12 @@ public class Upgrades {
         this.description = description;
     }
 
-    public List<UpgradeFiles> getFilesSent() {
-        return filesSent;
+    public String getContentLink() {
+        return contentLink;
     }
 
-    public void setFilesSent(List<UpgradeFiles> filesSent) {
-        this.filesSent = filesSent;
+    public void setContentLink(String contentLink) {
+        this.contentLink = contentLink;
     }
 
     public Long getId() {

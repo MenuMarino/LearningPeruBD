@@ -77,7 +77,7 @@ public class TestController {
         user5.setPassword(DigestUtils.sha256Hex("enrique"));
         user5.setName("Enrique");
         user5.setLastname("Sobrados");
-        user5.setType(Type_of_user.TWAITING);
+        user5.setType(Type_of_user.STUDENT);
         user5.setSex(true);
         user5.setCreated(new Date());
         userService.save(user5);
