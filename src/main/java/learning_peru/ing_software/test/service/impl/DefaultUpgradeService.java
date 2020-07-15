@@ -29,6 +29,7 @@ public class DefaultUpgradeService implements UpgradeService {
         upgrades.setUpgradedTo(Type_of_user.CWAITING);
         upgrades.setUser(user);
         upgrades.setDescription(newUpgradeBean.getDescription());
+        upgrades.setContentLink(newUpgradeBean.getContentLink());
         upgradeRepository.save(upgrades);
         return true;
     }
