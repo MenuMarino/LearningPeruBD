@@ -58,8 +58,7 @@ public class User {
     @OrderBy("id desc")
     private List<Material> myMaterials;
 
-    @OneToMany
-    @PrimaryKeyJoinColumn
+    @ManyToMany
     private List<Material> favouriteMaterials;
 
     @OneToMany(
