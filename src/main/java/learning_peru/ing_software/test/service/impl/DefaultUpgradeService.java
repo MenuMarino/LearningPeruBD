@@ -8,7 +8,11 @@ import learning_peru.ing_software.test.repositories.UpgradeRepository;
 import learning_peru.ing_software.test.service.UpgradeService;
 import learning_peru.ing_software.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DefaultUpgradeService implements UpgradeService {
@@ -27,5 +31,10 @@ public class DefaultUpgradeService implements UpgradeService {
         upgrades.setDescription(newUpgradeBean.getDescription());
         upgradeRepository.save(upgrades);
         return true;
+    }
+
+    @Override
+    public List<Upgrades> get_upgrades(Integer page) {
+        return upgradeRepository.findAllByAprovedIs(null,PageRequest.of(page,10, Sort.by(Sort.Order.asc("solicitated"))));
     }
 }
