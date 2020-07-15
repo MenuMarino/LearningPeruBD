@@ -39,7 +39,6 @@ public class FileController {
         file.setType(newFileBean.getTypeOfFile());
         file.setName(newFileBean.getName());
         file.setLink(newFileBean.getLink());
-        file.setDate(new Date());
         file.setMaterialFrom(material);
 
         fileList.add(file);

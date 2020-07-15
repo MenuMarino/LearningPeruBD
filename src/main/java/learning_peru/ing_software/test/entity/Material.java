@@ -30,7 +30,6 @@ public class Material {
     private Integer ratingPeople;
 
     @Column
-    @CreatedDate
     private Date date;
 
     @Column
@@ -64,6 +63,11 @@ public class Material {
     )
     private List<Rating> ratings;
 
+    @PrePersist
+    protected void prePersist(){
+        date=new Date();
+    }
+
     public String getName() {
         return name;
     }
@@ -76,9 +80,6 @@ public class Material {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public String getDescription() {
         return description;

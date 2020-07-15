@@ -31,7 +31,6 @@ public class Upgrades {
     private String contentLink;             //
 
     @Column
-    @CreatedDate
     private Date solicitated;
 
     @Column
@@ -43,6 +42,16 @@ public class Upgrades {
     @OneToOne
     @JoinColumn(name="who_approved")
     private User whoApproved;
+
+    @PrePersist
+    protected void prePersist(){
+        solicitated=new Date();
+    }
+
+    @PreUpdate
+    protected void preUpdate(){
+        response=new Date();
+    }
 
 
     public String getDescription() {
@@ -89,9 +98,6 @@ public class Upgrades {
         return solicitated;
     }
 
-    public void setSolicitated(Date solicitated) {
-        this.solicitated = solicitated;
-    }
 
     public Date getResponse() {
         return response;

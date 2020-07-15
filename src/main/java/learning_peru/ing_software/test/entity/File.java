@@ -17,7 +17,6 @@ public class File {
     private String name;
 
     @Column
-    @CreatedDate
     private Date date;
 
     @Column
@@ -30,6 +29,12 @@ public class File {
     @ManyToOne
     @JsonIgnoreProperties("files")
     private Material materialFrom;
+
+    @PrePersist
+    protected void prePersist(){
+        date=new Date();
+    }
+
 
     public Type_of_file getType() {
         return type;
@@ -59,9 +64,7 @@ public class File {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+
 
     public String getLink() {
         return link;

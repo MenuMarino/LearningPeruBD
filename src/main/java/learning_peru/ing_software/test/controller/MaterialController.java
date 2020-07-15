@@ -47,7 +47,6 @@ public class MaterialController {
         material.setLearningPoints(0);
         material.setDownloads(0);
         material.setVisits(0);
-        material.setDate(new Date());
         material.setDescription(materialBean.getDescription());
         material.setName(materialBean.getName());
         material=materialService.save(material);
