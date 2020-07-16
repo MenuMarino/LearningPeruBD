@@ -105,5 +105,16 @@ public class MaterialController {
         return materialService.getNotCuratedMaterials(page);
     }
 
-
+    @PostMapping("/view/{idU}/{idM}")
+    @ResponseBody
+    public Boolean addViews(@PathVariable("idU") Long idU,@PathVariable("idM") Long idM ){
+        Material material = materialService.findById(idM);
+        Long userIdFromMaterial = material.getWhoPosted().getId();
+        if (!idU.equals(userIdFromMaterial)){
+            material.setVisits(material.getVisits()+1);
+            materialService.save(material);
+            return true;
+        }
+        return false;
+    }
 }
