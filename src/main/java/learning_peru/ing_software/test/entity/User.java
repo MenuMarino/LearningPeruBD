@@ -49,7 +49,6 @@ public class User {
     @Column
     private Type_of_user type;
 
-    @CreatedDate
     @Column
     private Date created;
 
@@ -69,6 +68,11 @@ public class User {
 
     @Column
     private Boolean enabled;
+
+    @PrePersist
+    protected void prePersist(){
+        created=new Date();
+    }
 
     public void setSex(Boolean sex) {
         this.sex = sex;

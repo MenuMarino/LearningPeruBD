@@ -143,24 +143,20 @@ public class TestController {
         material.setRatingPeople(1);
         material.setLearningPoints(2);
         Date date = new Date();
-        material.setDate(date);
 
         File file = new File();
         file.setName("Guia_Laboratorio_11_2");
-        file.setDate(date);
         file.setLink("Guia_Laboratorio_11_2.pdf");
         file.setType(Type_of_file.PDF);
 
         File file2 = new File();
         file2.setName("link de youtube");
-        file2.setDate(date);
         file2.setLink("https://www.youtube.com/embed/t3DpuQrBivU");
         file2.setType(Type_of_file.YOUTUBE_LINK);
 
 
         File file3 = new File();
         file3.setName("PRUEBA DE MP4");
-        file3.setDate(date);
         file3.setLink("assets/prueba.mp4");
         file3.setType(Type_of_file.VIDEO);
 

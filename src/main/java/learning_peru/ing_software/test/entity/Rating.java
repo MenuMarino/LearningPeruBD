@@ -17,7 +17,6 @@ public class Rating {
     private Integer learningPoints;
 
     @Column
-    @CreatedDate
     private Date created;
 
     @JsonIgnoreProperties("ratings")
@@ -27,6 +26,12 @@ public class Rating {
     @JsonIgnoreProperties({"myMaterials","favouriteMaterials","ratings"})
     @ManyToOne
     private User user;
+
+    @PrePersist
+    protected void prePersist(){
+        if (created==null){
+        created=new Date();}
+    }
 
     public Long getId() {
         return id;

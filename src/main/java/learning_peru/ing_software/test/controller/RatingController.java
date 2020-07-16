@@ -47,7 +47,6 @@ public class RatingController {
 
             rating = new Rating();
             rating.setLearningPoints(newRatingBean.getLearningPoints());
-            rating.setCreated(new Date());
             rating = ratingService.save(rating);
 
             usersRatingList.add(rating);
