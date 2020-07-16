@@ -101,14 +101,26 @@ public class MaterialController {
 
     @PostMapping("/view/{idU}/{idM}")
     @ResponseBody
-    public Boolean addViews(@PathVariable("idU") Long idU,@PathVariable("idM") Long idM ){
+    public Boolean addViews(@PathVariable("idU") Long idU,@PathVariable("idM") Long idM ) {
         Material material = materialService.findById(idM);
         Long userIdFromMaterial = material.getWhoPosted().getId();
-        if (!idU.equals(userIdFromMaterial)){
-            material.setVisits(material.getVisits()+1);
+        if (!idU.equals(userIdFromMaterial)) {
+            material.setVisits(material.getVisits() + 1);
             materialService.save(material);
             return true;
         }
         return false;
+    }
+
+    @PostMapping("/download/{idM}")
+    @ResponseBody
+    public Boolean newDownload(@PathVariable("idM") Long idM ) {
+        Material material = materialService.findById(idM);
+        if (material != null) {
+            material.setDownloads(material.getDownloads() + 1);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
